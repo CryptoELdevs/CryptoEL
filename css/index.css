@@ -1,4 +1,4 @@
-@import url("../assets/fonts/NicoMoji-regular.ttf");
+@import url("/assets/fonts/NicoMoji-regular.ttf");
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
 html,
 body,
@@ -155,16 +155,17 @@ header .searchBarContainer .searchBar {
   border-radius: 10px;
   display: flex;
   align-items: center;
+  cursor: text;
 }
 header .searchBarContainer .searchBar .searchLogoSide {
-  width: 15%;
+  width: 12%;
   height: 70%;
   display: grid;
   place-items: center;
   border-right: 1px solid rgba(128, 128, 128, 0.548);
 }
 header .searchBarContainer .searchBar .searchLogoSide i {
-  color: rgb(48, 48, 48);
+  color: rgba(70, 70, 70, 0.781);
 }
 header .searchBarContainer .searchBar input {
   background-color: transparent;

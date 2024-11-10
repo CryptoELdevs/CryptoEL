@@ -25,16 +25,17 @@ header {
             border-radius: 10px;
             display: flex;
             align-items: center;
+            cursor: text;
 
             .searchLogoSide {
-                width: 15%;
+                width: 12%;
                 height: 70%;
                 display: grid;
                 place-items: center;
                 border-right: 1px solid rgba(128, 128, 128, 0.548);
 
                 i {
-                    color: rgb(48, 48, 48);
+                    color: rgba(70, 70, 70, 0.781);
                 }
             }
 
