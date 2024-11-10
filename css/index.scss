@@ -1,0 +1,15 @@
+//Components SCSS
+
+@use "components/colors";
+@use "components/fonts";
+@use "components/reset";
+@use "components/header";
+
+
+body {
+    background-color: colors.$background-color;
+}
+
+* {
+    font-family: fonts.$text-font;
+}

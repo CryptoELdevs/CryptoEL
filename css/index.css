@@ -1,0 +1,213 @@
+@import url("../assets/fonts/NicoMoji-regular.ttf");
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: auto;
+  background-color: #0B192C;
+}
+header div,
+header nav {
+  width: 33.3333333333vw;
+}
+header .searchBarContainer {
+  display: flex;
+  justify-content: center;
+}
+header .searchBarContainer .searchBar {
+  width: 20vw;
+  background-color: #EFEFEF;
+  height: 2.5rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+header .searchBarContainer .searchBar .searchLogoSide {
+  width: 15%;
+  height: 70%;
+  display: grid;
+  place-items: center;
+  border-right: 1px solid rgba(128, 128, 128, 0.548);
+}
+header .searchBarContainer .searchBar .searchLogoSide i {
+  color: rgb(48, 48, 48);
+}
+header .searchBarContainer .searchBar input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding-left: 1rem;
+  font-size: 1rem;
+  width: 100%;
+}
+header .searchBarContainer .searchBar input::-moz-placeholder {
+  color: rgb(182, 182, 182);
+}
+header .searchBarContainer .searchBar input::placeholder {
+  color: rgb(182, 182, 182);
+}
+header img {
+  width: 20rem;
+  display: flex;
+  align-self: flex-start;
+  filter: drop-shadow(0px 0px 1px black);
+}
+header nav {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+header nav ul {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+header nav ul li {
+  margin: 0 1rem;
+}
+header nav ul li a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+body {
+  background-color: #EFEFEF;
+}
+
+* {
+  font-family: "Lexend", sans-serif;
+}/*# sourceMappingURL=index.css.map */

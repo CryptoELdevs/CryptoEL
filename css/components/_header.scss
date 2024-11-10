@@ -1,0 +1,85 @@
+@use "./colors";
+@use "./fonts";
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: auto;
+    background-color: colors.$darkBlue;
+
+    div,
+    nav {
+        width: calc(100vw / 3);
+    }
+
+    .searchBarContainer {
+        display: flex;
+        justify-content: center;
+
+        .searchBar {
+            width: 20vw;
+            background-color: colors.$background-color;
+            height: 2.5rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+
+            .searchLogoSide {
+                width: 15%;
+                height: 70%;
+                display: grid;
+                place-items: center;
+                border-right: 1px solid rgba(128, 128, 128, 0.548);
+
+                i {
+                    color: rgb(48, 48, 48);
+                }
+            }
+
+            input {
+                background-color: transparent;
+                border: none;
+                outline: none;
+                padding-left: 1rem;
+                font-size: 1rem;
+                width: 100%;
+
+                &::placeholder {
+                    color: rgb(182, 182, 182);
+                }
+            }
+        }
+    }
+
+    img {
+        width: 20rem;
+        display: flex;
+        align-self: flex-start;
+        filter: drop-shadow(0px 0px 1px black);
+    }
+
+
+    nav {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+        ul {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+
+            li {
+                margin: 0 1rem;
+                
+
+                a{
+                    color: colors.$white;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
