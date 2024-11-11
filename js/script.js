@@ -10,205 +10,250 @@ searchbar.addEventListener("click", () => {
     searchInput.focus()
 })
 
-let lastCryptoValues = {
-    BTC: [],
-    ETH: [],
-    BNB: [],
-    USDT: [],
-    XRP: [],
-    ADA: [],
-    SOL: [],
-    DOGE: [],
-    DOT: [],
-    MATIC: [],
-    LTC: [],
-    BCH: [],
-    LINK: [],
-    XLM: [],
-    VET: [],
-    TRX: [],
-    EOS: [],
-    MKR: [],
-    SHIB: [],
-    AVAX: [],
-    FTM: [],
-    ALGO: [],
-    LUNA: [],
-    ZRX: [],
-    UNI: [],
-    SUSHI: [],
-    AAVE: [],
-    COMP: [],
-    BAT: []
+let cryptos = [
+    "BTC"
+]
+
+let cryptoValuesByPeriod = {
+    byHour: {
+        BTC: { min: [], max: [], start: [], end: [] },
+        ETH: { min: [], max: [], start: [], end: [] },
+        BNB: { min: [], max: [], start: [], end: [] },
+        USDT: { min: [], max: [], start: [], end: [] },
+        XRP: { min: [], max: [], start: [], end: [] },
+        ADA: { min: [], max: [], start: [], end: [] },
+        SOL: { min: [], max: [], start: [], end: [] },
+        DOGE: { min: [], max: [], start: [], end: [] },
+        DOT: { min: [], max: [], start: [], end: [] },
+        MATIC: { min: [], max: [], start: [], end: [] },
+        LTC: { min: [], max: [], start: [], end: [] },
+        BCH: { min: [], max: [], start: [], end: [] },
+        LINK: { min: [], max: [], start: [], end: [] },
+        XLM: { min: [], max: [], start: [], end: [] },
+        VET: { min: [], max: [], start: [], end: [] },
+        TRX: { min: [], max: [], start: [], end: [] },
+        EOS: { min: [], max: [], start: [], end: [] },
+        MKR: { min: [], max: [], start: [], end: [] },
+        SHIB: { min: [], max: [], start: [], end: [] },
+        AVAX: { min: [], max: [], start: [], end: [] },
+        FTM: { min: [], max: [], start: [], end: [] },
+        ALGO: { min: [], max: [], start: [], end: [] },
+        LUNA: { min: [], max: [], start: [], end: [] },
+        ZRX: { min: [], max: [], start: [], end: [] },
+        UNI: { min: [], max: [], start: [], end: [] },
+        SUSHI: { min: [], max: [], start: [], end: [] },
+        AAVE: { min: [], max: [], start: [], end: [] },
+        COMP: { min: [], max: [], start: [], end: [] },
+        BAT: { min: [], max: [], start: [], end: [] }
+    },
+    byDay: {
+        BTC: { min: [], max: [], start: [], end: [] },
+        ETH: { min: [], max: [], start: [], end: [] },
+        BNB: { min: [], max: [], start: [], end: [] },
+        USDT: { min: [], max: [], start: [], end: [] },
+        XRP: { min: [], max: [], start: [], end: [] },
+        ADA: { min: [], max: [], start: [], end: [] },
+        SOL: { min: [], max: [], start: [], end: [] },
+        DOGE: { min: [], max: [], start: [], end: [] },
+        DOT: { min: [], max: [], start: [], end: [] },
+        MATIC: { min: [], max: [], start: [], end: [] },
+        LTC: { min: [], max: [], start: [], end: [] },
+        BCH: { min: [], max: [], start: [], end: [] },
+        LINK: { min: [], max: [], start: [], end: [] },
+        XLM: { min: [], max: [], start: [], end: [] },
+        VET: { min: [], max: [], start: [], end: [] },
+        TRX: { min: [], max: [], start: [], end: [] },
+        EOS: { min: [], max: [], start: [], end: [] },
+        MKR: { min: [], max: [], start: [], end: [] },
+        SHIB: { min: [], max: [], start: [], end: [] },
+        AVAX: { min: [], max: [], start: [], end: [] },
+        FTM: { min: [], max: [], start: [], end: [] },
+        ALGO: { min: [], max: [], start: [], end: [] },
+        LUNA: { min: [], max: [], start: [], end: [] },
+        ZRX: { min: [], max: [], start: [], end: [] },
+        UNI: { min: [], max: [], start: [], end: [] },
+        SUSHI: { min: [], max: [], start: [], end: [] },
+        AAVE: { min: [], max: [], start: [], end: [] },
+        COMP: { min: [], max: [], start: [], end: [] },
+        BAT: { min: [], max: [], start: [], end: [] }
+    },
+    byMonth: {
+        BTC: { min: [], max: [], start: [], end: [] },
+        ETH: { min: [], max: [], start: [], end: [] },
+        BNB: { min: [], max: [], start: [], end: [] },
+        USDT: { min: [], max: [], start: [], end: [] },
+        XRP: { min: [], max: [], start: [], end: [] },
+        ADA: { min: [], max: [], start: [], end: [] },
+        SOL: { min: [], max: [], start: [], end: [] },
+        DOGE: { min: [], max: [], start: [], end: [] },
+        DOT: { min: [], max: [], start: [], end: [] },
+        MATIC: { min: [], max: [], start: [], end: [] },
+        LTC: { min: [], max: [], start: [], end: [] },
+        BCH: { min: [], max: [], start: [], end: [] },
+        LINK: { min: [], max: [], start: [], end: [] },
+        XLM: { min: [], max: [], start: [], end: [] },
+        VET: { min: [], max: [], start: [], end: [] },
+        TRX: { min: [], max: [], start: [], end: [] },
+        EOS: { min: [], max: [], start: [], end: [] },
+        MKR: { min: [], max: [], start: [], end: [] },
+        SHIB: { min: [], max: [], start: [], end: [] },
+        AVAX: { min: [], max: [], start: [], end: [] },
+        FTM: { min: [], max: [], start: [], end: [] },
+        ALGO: { min: [], max: [], start: [], end: [] },
+        LUNA: { min: [], max: [], start: [], end: [] },
+        ZRX: { min: [], max: [], start: [], end: [] },
+        UNI: { min: [], max: [], start: [], end: [] },
+        SUSHI: { min: [], max: [], start: [], end: [] },
+        AAVE: { min: [], max: [], start: [], end: [] },
+        COMP: { min: [], max: [], start: [], end: [] },
+        BAT: { min: [], max: [], start: [], end: [] }
+    },
+    byYear: {
+        BTC: { min: [], max: [], start: [], end: [] },
+        ETH: { min: [], max: [], start: [], end: [] },
+        BNB: { min: [], max: [], start: [], end: [] },
+        USDT: { min: [], max: [], start: [], end: [] },
+        XRP: { min: [], max: [], start: [], end: [] },
+        ADA: { min: [], max: [], start: [], end: [] },
+        SOL: { min: [], max: [], start: [], end: [] },
+        DOGE: { min: [], max: [], start: [], end: [] },
+        DOT: { min: [], max: [], start: [], end: [] },
+        MATIC: { min: [], max: [], start: [], end: [] },
+        LTC: { min: [], max: [], start: [], end: [] },
+        BCH: { min: [], max: [], start: [], end: [] },
+        LINK: { min: [], max: [], start: [], end: [] },
+        XLM: { min: [], max: [], start: [], end: [] },
+        VET: { min: [], max: [], start: [], end: [] },
+        TRX: { min: [], max: [], start: [], end: [] },
+        EOS: { min: [], max: [], start: [], end: [] },
+        MKR: { min: [], max: [], start: [], end: [] },
+        SHIB: { min: [], max: [], start: [], end: [] },
+        AVAX: { min: [], max: [], start: [], end: [] },
+        FTM: { min: [], max: [], start: [], end: [] },
+        ALGO: { min: [], max: [], start: [], end: [] },
+        LUNA: { min: [], max: [], start: [], end: [] },
+        ZRX: { min: [], max: [], start: [], end: [] },
+        UNI: { min: [], max: [], start: [], end: [] },
+        SUSHI: { min: [], max: [], start: [], end: [] },
+        AAVE: { min: [], max: [], start: [], end: [] },
+        COMP: { min: [], max: [], start: [], end: [] },
+        BAT: { min: [], max: [], start: [], end: [] }
+    }
 };
 
-
-// Get cryptos infos part
-const cryptosToFind = [
-    "BTC", // Bitcoin
-    "ETH", // Ethereum
-    "BNB", // Binance Coin
-    "USDT", // Tether
-    "XRP", // Ripple
-    "ADA", // Cardano
-    "SOL", // Solana
-    "DOGE", // Dogecoin
-    "DOT", // Polkadot
-    "MATIC", // Polygon
-    "LTC", // Litecoin
-    "BCH", // Bitcoin Cash
-    "LINK", // Chainlink
-    "XLM", // Stellar
-    "VET", // VeChain
-    "TRX", // TRON
-    "EOS", // EOS.IO
-    "MKR", // Maker
-    "SHIB", // Shiba Inu
-    "AVAX", // Avalanche
-    "FTM", // Fantom
-    "ALGO", // Algorand
-    "LUNA", // Terra
-    "ZRX", // 0x
-    "UNI", // Uniswap
-    "SUSHI", // SushiSwap
-    "AAVE", // Aave
-    "COMP", // Compound
-    "BAT"  // Basic Attention Token
-];
-
-let prices = {
-    BTC: 0,
-    ETH: 0,
-    BNB: 0,
-    USDT: 0,
-    XRP: 0,
-    ADA: 0,
-    SOL: 0,
-    DOGE: 0,
-    DOT: 0,
-    MATIC: 0,
-    LTC: 0,
-    BCH: 0,
-    LINK: 0,
-    XLM: 0,
-    VET: 0,
-    TRX: 0,
-    EOS: 0,
-    MKR: 0,
-    SHIB: 0,
-    AVAX: 0,
-    FTM: 0,
-    ALGO: 0,
-    LUNA: 0,
-    ZRX: 0,
-    UNI: 0,
-    SUSHI: 0,
-    AAVE: 0,
-    COMP: 0,
-    BAT: 0
-};
-
-const socketToApi = new WebSocket('wss://ws.coinapi.io/v1/');
-
-socketToApi.onopen = () => {
-    console.log("WebSocket opened")
-
-    const message = {
-        type: "hello",
-        apikey: "81D78638-B2D6-4EAF-B3E8-12ECA628E6CE",
-        heartbeat: false,
-        subscribe_data_type: ["trade"],
-        subscribe_filter_asset_id: cryptosToFind
-    }
-    socketToApi.send(JSON.stringify(message))
-}
-
-socketToApi.onmessage = (message) => {
-    handleSocketMessage(message)
-}
-
-socketToApi.onclose = () => {
-    console.log("Websocket closed")
-}
-
-function handleSocketMessage(message) {
-    try {
-        let datas = JSON.parse(message.data)
-        let moneyPart = datas.symbol_id
-        if (datas.type === "trade") {
-            const crypto = cryptosToFind.find(code => moneyPart.includes(code)).toString()
-            const lastCryptoValuesOfCrypto = lastCryptoValues[crypto]
-            if (lastCryptoValuesOfCrypto.length >= 6) {
-                lastCryptoValuesOfCrypto.shift()
-            }
-            lastCryptoValuesOfCrypto.push(datas.price)
-        }
-    }
-    catch (e) {
-        console.error("Error lors du parse des données")
-    }
-}
-
-setInterval(() => {
-    buildGraphForBtc()
-}, 1000);
 const ctx = document.getElementById("candlestickChart").getContext("2d")
 
+askDatasFromApi("1h", "BTC")
 
-function buildGraphForBtc() {
+
+async function askDatasFromApi(time, money) {
+        try {
+        let dateStart = new Date()
+        const dateEnd = (new Date()).toISOString()
+        let period = "";
+        let byTimeArray = [];
+        switch (time) {
+            case "1h":
+                dateStart.setHours(dateStart.getHours() - 1);
+                period = "1MIN";
+                byTimeArray = cryptoValuesByPeriod.byHour
+                break;
+            case "1d":
+                dateStart.setDate(dateStart.getDate() - 1);
+                period = "1HRS";
+                byTimeArray = cryptoValuesByPeriod.byDay
+                break;
+            case "1m":
+                dateStart.setMonth(dateStart.getMonth() - 1);
+                period = "1DAY";
+                byTimeArray = cryptoValuesByPeriod.byMonth
+                break;
+            case "1y":
+                dateStart.setFullYear(dateStart.getFullYear() - 1)
+                period = "1MTH";
+                byTimeArray = cryptoValuesByPeriod.byYear
+                break
+        }
+
+        dateStart = dateStart.toISOString()
+
+        const url = `https://rest.coinapi.io/v1/exchangerate/${money}/USD/history?period_id=${period}&time_start=${dateStart}&time_end=${dateEnd}`;
+
+        const ohlcv = await fetch(url, {
+            method: "GET",
+            headers: {
+                'X-CoinAPI-Key': "81D78638-B2D6-4EAF-B3E8-12ECA628E6CE"
+            }
+        })
+
+        if (!ohlcv.ok) {
+            console.error(`Erreur lors du fetch (${ohlcv.status})`)
+        }
+
+        let infosJson = await ohlcv.json()
+        console.log(infosJson)
+
+        const crypto = byTimeArray[money];
+
+        crypto.min = []
+        crypto.max = []
+        crypto.start = []
+        crypto.end = []
+
+        infosJson.forEach(info => {
+            crypto.min.push(info.rate_low)
+            crypto.max.push(info.rate_high)
+            crypto.start.push(info.rate_open)
+            crypto.end.push(info.rate_close)
+        })
+    }
+    catch (e) {
+        console.error(e)
+    }
+}
+
+function buildGraph() {
     const canvas = document.getElementById('candlestickChart');
-    
-    // Si un graphique existe déjà, on le met à jour
+    const labels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
     if (window.myChart) {
-        // Vérifier que les données existent
-        if (!lastCryptoValues.BTC || lastCryptoValues.BTC.length === 0) {
-            console.error('No data available for the chart.');
-            return;
+
+
+        // Créer un tableau de données sous forme de chandeliers 
+        let chartData = []
+        const crypto = cryptoValuesByPeriod.byHour.BTC
+        for (let i = 0; i < labels.length; i++) {
+            chartData.push({
+                x: labels[i],
+                o: crypto.start[i],
+                h: crypto.max[i],
+                l: crypto.min[i],
+                c: crypto.end[i]
+            });
         }
 
-        const labels = [];
-        for (let i = 60; i >= 0; i -= 10) {
-            labels.push(i.toString());
-        }
-
-        // Créer un tableau de données sous forme de chandeliers
-        const chartData = lastCryptoValues.BTC.map((price, index) => {
-            const openPrice = index > 0 ? lastCryptoValues.BTC[index - 1] : price;
-
-            return {
-                x: labels[index],
-                o: openPrice,
-                h: Math.max(openPrice, price),
-                l: Math.min(openPrice, price),
-                c: price
-            };
-        });
+        console.log(crypto.end[1])
 
         // Mettre à jour les données du graphique existant
-        window.myChart.data.labels = labels; // Met à jour les labels
         window.myChart.data.datasets[0].data = chartData; // Met à jour les données du dataset
         window.myChart.update(); // Applique les changements sans détruire le graphique
 
     } else {
         // Si aucun graphique n'existe, on en crée un nouveau
         const ctx = canvas.getContext('2d');
-        const labels = [];
-        for (let i = 60; i >= 0; i -= 10) {
-            labels.push(i.toString());
-        }
 
         // Créer un tableau de données sous forme de chandeliers
-        const chartData = lastCryptoValues.BTC.map((price, index) => {
-            const openPrice = index > 0 ? lastCryptoValues.BTC[index - 1] : price;
-
-            return {
-                x: labels[index],
-                o: openPrice,
-                h: Math.max(openPrice, price),
-                l: Math.min(openPrice, price),
-                c: price
-            };
-        });
+        let chartData = []
+        const crypto = cryptoValuesByPeriod.byHour.BTC
+        for (let i = 0; i < labels.length; i++) {
+            chartData.push({
+                x: labels[i],
+                o: crypto.start[i],
+                h: crypto.max[i],
+                l: crypto.min[i],
+                c: crypto.end[i]
+            });
+        }
 
         // Créer un nouveau graphique
         window.myChart = new Chart(ctx, {
@@ -234,3 +279,13 @@ function buildGraphForBtc() {
         });
     }
 }
+
+setInterval(() => {
+    cryptos.forEach(crypto => {
+        askDatasFromApi("1h", crypto)
+    })
+}, 1000);
+
+setInterval(() => {
+    buildGraph()
+}, 1001);
