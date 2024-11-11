@@ -1,3 +1,5 @@
+
+
 // Initialize search bar HTML elements
 const searchbar = document.querySelector(".searchBar");
 const searchInput = document.querySelector(".searchBar input");
@@ -7,6 +9,39 @@ const searchIconPart = document.querySelector(".searchLogoSide");
 searchbar.addEventListener("click", () => {
     searchInput.focus()
 })
+
+let lastCryptoValues = {
+    BTC: [],
+    ETH: [],
+    BNB: [],
+    USDT: [],
+    XRP: [],
+    ADA: [],
+    SOL: [],
+    DOGE: [],
+    DOT: [],
+    MATIC: [],
+    LTC: [],
+    BCH: [],
+    LINK: [],
+    XLM: [],
+    VET: [],
+    TRX: [],
+    EOS: [],
+    MKR: [],
+    SHIB: [],
+    AVAX: [],
+    FTM: [],
+    ALGO: [],
+    LUNA: [],
+    ZRX: [],
+    UNI: [],
+    SUSHI: [],
+    AAVE: [],
+    COMP: [],
+    BAT: []
+};
+
 
 // Get cryptos infos part
 const cryptosToFind = [
@@ -102,7 +137,11 @@ function handleSocketMessage(message) {
         let moneyPart = datas.symbol_id
         if (datas.type === "trade") {
             const crypto = cryptosToFind.find(code => moneyPart.includes(code)).toString()
-            prices[crypto] = datas.price
+            const lastCryptoValuesOfCrypto = lastCryptoValues[crypto]
+            if (lastCryptoValuesOfCrypto.length >= 6) {
+                lastCryptoValuesOfCrypto.shift()
+            }
+            lastCryptoValuesOfCrypto.push(datas.price)
         }
     }
     catch (e) {
@@ -111,5 +150,87 @@ function handleSocketMessage(message) {
 }
 
 setInterval(() => {
-    console.log(prices)
+    buildGraphForBtc()
 }, 1000);
+const ctx = document.getElementById("candlestickChart").getContext("2d")
+
+
+function buildGraphForBtc() {
+    const canvas = document.getElementById('candlestickChart');
+    
+    // Si un graphique existe déjà, on le met à jour
+    if (window.myChart) {
+        // Vérifier que les données existent
+        if (!lastCryptoValues.BTC || lastCryptoValues.BTC.length === 0) {
+            console.error('No data available for the chart.');
+            return;
+        }
+
+        const labels = [];
+        for (let i = 60; i >= 0; i -= 10) {
+            labels.push(i.toString());
+        }
+
+        // Créer un tableau de données sous forme de chandeliers
+        const chartData = lastCryptoValues.BTC.map((price, index) => {
+            const openPrice = index > 0 ? lastCryptoValues.BTC[index - 1] : price;
+
+            return {
+                x: labels[index],
+                o: openPrice,
+                h: Math.max(openPrice, price),
+                l: Math.min(openPrice, price),
+                c: price
+            };
+        });
+
+        // Mettre à jour les données du graphique existant
+        window.myChart.data.labels = labels; // Met à jour les labels
+        window.myChart.data.datasets[0].data = chartData; // Met à jour les données du dataset
+        window.myChart.update(); // Applique les changements sans détruire le graphique
+
+    } else {
+        // Si aucun graphique n'existe, on en crée un nouveau
+        const ctx = canvas.getContext('2d');
+        const labels = [];
+        for (let i = 60; i >= 0; i -= 10) {
+            labels.push(i.toString());
+        }
+
+        // Créer un tableau de données sous forme de chandeliers
+        const chartData = lastCryptoValues.BTC.map((price, index) => {
+            const openPrice = index > 0 ? lastCryptoValues.BTC[index - 1] : price;
+
+            return {
+                x: labels[index],
+                o: openPrice,
+                h: Math.max(openPrice, price),
+                l: Math.min(openPrice, price),
+                c: price
+            };
+        });
+
+        // Créer un nouveau graphique
+        window.myChart = new Chart(ctx, {
+            type: 'candlestick',
+            data: {
+                datasets: [{
+                    label: 'BTC Candlestick',
+                    data: chartData
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        type: 'category',
+                        labels: labels,
+                    },
+                    y: {
+                        beginAtZero: false
+                    }
+                }
+            }
+        });
+    }
+}
