@@ -155,7 +155,7 @@ async function askDatasFromApi(time, money) {
         switch (time) {
             case "1h":
                 dateStart.setHours(dateStart.getHours() - 1);
-                period = "1MIN";
+                period = "5MIN";
                 byTimeArray = cryptoValuesByPeriod.byHour
                 break;
             case "1d":
