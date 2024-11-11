@@ -1,9 +1,15 @@
 //Components SCSS
 
+/*=============================================
+=        Import all the scss files            =
+=============================================*/
+
 @use "components/colors";
 @use "components/fonts";
 @use "components/reset";
 @use "components/header";
+
+/*=====  End of imports ======*/
 
 
 body {
