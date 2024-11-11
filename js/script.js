@@ -322,4 +322,4 @@ function showCrypto(time, crypto) {
     }, 60000);
 }
 
-showCrypto("h", "BTC")
+showCrypto("h", "ETH")
