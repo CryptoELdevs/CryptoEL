@@ -10,9 +10,7 @@ searchbar.addEventListener("click", () => {
     searchInput.focus()
 })
 
-let cryptos = [
-    "BTC"
-]
+//------------------------------------------CRYPTO GRAPH PART---------------------------------------->
 
 let cryptoValuesByPeriod = {
     byHour: {
@@ -143,34 +141,38 @@ let cryptoValuesByPeriod = {
 
 const ctx = document.getElementById("candlestickChart").getContext("2d")
 
-askDatasFromApi("1h", "BTC")
+let numberOfLInes = 0;
 
-
+/**
+ * Ask the datas about one money from an api and put it in an array
+ * 
+ * @param {string} time Time in which you would like to see the crypto
+ * @param {string} money The crypto that you want to see
+ */
 async function askDatasFromApi(time, money) {
-        try {
+    try {
         let dateStart = new Date()
         const dateEnd = (new Date()).toISOString()
-        let period = "";
         let byTimeArray = [];
         switch (time) {
-            case "1h":
+            case "h":
                 dateStart.setHours(dateStart.getHours() - 1);
-                period = "1MIN";
+                period = "1MIN"
                 byTimeArray = cryptoValuesByPeriod.byHour
                 break;
-            case "1d":
+            case "d":
                 dateStart.setDate(dateStart.getDate() - 1);
-                period = "1HRS";
+                period = "1HRS"
                 byTimeArray = cryptoValuesByPeriod.byDay
                 break;
-            case "1m":
+            case "m":
                 dateStart.setMonth(dateStart.getMonth() - 1);
                 period = "1DAY";
                 byTimeArray = cryptoValuesByPeriod.byMonth
                 break;
-            case "1y":
+            case "y":
                 dateStart.setFullYear(dateStart.getFullYear() - 1)
-                period = "1MTH";
+                period = "7DAY";
                 byTimeArray = cryptoValuesByPeriod.byYear
                 break
         }
@@ -187,11 +189,10 @@ async function askDatasFromApi(time, money) {
         })
 
         if (!ohlcv.ok) {
-            console.error(`Erreur lors du fetch (${ohlcv.status})`)
+            throw new error(`Erreur lors du fetch (${ohlcv.status})`)
         }
 
         let infosJson = await ohlcv.json()
-        console.log(infosJson)
 
         const crypto = byTimeArray[money];
 
@@ -212,16 +213,37 @@ async function askDatasFromApi(time, money) {
     }
 }
 
-function buildGraph() {
+/**
+ * Build a graph for a crypto
+ * 
+ * @param {string} time Time in which you would like to see the crypto
+ * @param {string} cryptoToShow The crypto that you want to see
+ */
+function buildGraph(time, cryptoToShow) {
+    let byTime = []
+    let labels = []
+    switch (time) {
+        case "h":
+            byTime = cryptoValuesByPeriod.byHour
+            break;
+        case "d":
+            byTime = cryptoValuesByPeriod.byDay
+            break;
+        case "m":
+            byTime = cryptoValuesByPeriod.byMonth
+            break;
+        case "y":
+            byTime = cryptoValuesByPeriod.byYear
+            break;
+    }
     const canvas = document.getElementById('candlestickChart');
-    const labels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    const crypto = byTime[cryptoToShow]
+    for (let i = 0; i < crypto.min.length; i++)
+        labels.push(i)
 
     if (window.myChart) {
-
-
         // Créer un tableau de données sous forme de chandeliers 
         let chartData = []
-        const crypto = cryptoValuesByPeriod.byHour.BTC
         for (let i = 0; i < labels.length; i++) {
             chartData.push({
                 x: labels[i],
@@ -231,8 +253,6 @@ function buildGraph() {
                 c: crypto.end[i]
             });
         }
-
-        console.log(crypto.end[1])
 
         // Mettre à jour les données du graphique existant
         window.myChart.data.datasets[0].data = chartData; // Met à jour les données du dataset
@@ -244,7 +264,7 @@ function buildGraph() {
 
         // Créer un tableau de données sous forme de chandeliers
         let chartData = []
-        const crypto = cryptoValuesByPeriod.byHour.BTC
+        const crypto = byTime[cryptoToShow]
         for (let i = 0; i < labels.length; i++) {
             chartData.push({
                 x: labels[i],
@@ -280,12 +300,26 @@ function buildGraph() {
     }
 }
 
-setInterval(() => {
-    cryptos.forEach(crypto => {
-        askDatasFromApi("1h", crypto)
-    })
-}, 1000);
+/**
+ * Show a graph of a crypto that update himself
+ * 
+ * @param {string} time Time in which you would like to see the crypto
+ * @param {string} crypto The crypto that you want to see
+ */
+function showCrypto(time, crypto) {
+    askDatasFromApi(time, crypto)
 
-setInterval(() => {
-    buildGraph()
-}, 1001);
+    setTimeout(() => {
+        buildGraph(time, crypto)
+    }, 1000);
+
+    setInterval(() => {
+        askDatasFromApi(time, crypto)
+    }, 60000);
+
+    setInterval(() => {
+        buildGraph(time, crypto)
+    }, 60000);
+}
+
+showCrypto("h", "BTC")
