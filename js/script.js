@@ -90,7 +90,7 @@ function buildGraph(crypto) {
     for (let i = 0; i < numberOfLabels; i++) {
         chartData.push({
             // Construction d'une bougie
-            x: cryptoInfos[i].time_period_end,
+            x: labels[i],
             o: cryptoInfos[i].rate_open,
             h: cryptoInfos[i].rate_high,
             l: cryptoInfos[i].rate_low,
@@ -108,7 +108,8 @@ function buildGraph(crypto) {
     } else {
         // Si aucun graphique n'existe, on en crée un nouveau
         const ctx = canvas.getContext('2d');
-        
+        console.log(labels)
+
         window.myChart = new Chart(ctx, {
             type: 'candlestick',
             data: {
@@ -127,6 +128,8 @@ function buildGraph(crypto) {
                     y: {
                         beginAtZero: false
                     }
+                },
+                animation: {
                 }
             }
         });
@@ -141,18 +144,18 @@ function buildGraph(crypto) {
  */
 async function showCrypto(time, crypto) {
     let interval = 0;
-    switch(time) {
+    switch (time) {
         case "h":
-            interval = 60000;
+            interval = 60 * 1000;
             break;
         case "d":
-            interval = 86400000;
+            interval = 86400 * 1000;
             break;
         case "m":
-            interval = 2592000000;
+            interval = 2592 * 1000 * 1000;
             break;
         case "y":
-            interval = 31536000000;
+            interval = 31536 * 1000 * 1000;
             break;
     }
     await askDatasFromApi(time, crypto)
@@ -168,4 +171,4 @@ async function showCrypto(time, crypto) {
     }, interval);
 }
 
-showCrypto("h", "ETH")
+showCrypto("y", "DOGE")
