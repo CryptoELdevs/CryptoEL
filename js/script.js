@@ -98,19 +98,19 @@ function buildGraph(crypto) {
         });
     }
 
-    if (window.myChart) {
+    if (window.cryptoGraph) {
 
         // Mettre à jour les données du graphique existant
-        window.myChart.data.datasets[0].labels = numberOfLabels;
-        window.myChart.data.datasets[0].data = chartData;
-        window.myChart.update();
+        window.cryptoGraph.data.datasets[0].labels = numberOfLabels;
+        window.cryptoGraph.data.datasets[0].data = chartData;
+        window.cryptoGraph.update();
 
     } else {
         // Si aucun graphique n'existe, on en crée un nouveau
         const ctx = canvas.getContext('2d');
         console.log(labels)
 
-        window.myChart = new Chart(ctx, {
+        window.cryptoGraph = new Chart(ctx, {
             type: 'candlestick',
             data: {
                 datasets: [{
@@ -171,4 +171,4 @@ async function showCrypto(time, crypto) {
     }, interval);
 }
 
-showCrypto("y", "DOGE")
+showCrypto("h", "DOGE")
