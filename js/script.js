@@ -16,7 +16,7 @@ let cryptoValuesByPeriod = {};
 
 const ctx = document.getElementById("candlestickChart").getContext("2d")
 
-let numberOfLInes = 0;
+let numberOfLines = 0;
 
 /**
  * Ask the datas about one money from an api and put it in an array
