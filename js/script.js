@@ -17,8 +17,15 @@ let numberOfLines = 0;
 
 const ctx = document.getElementById("candlestickChart").getContext("2d")
 
+/**
+ * Get the api
+ */
+async function getAPIKey() {
+    let infos = await fetch("../config/config.json")
+    infos = await infos.json()
 
-
+    return infos.CoinAPI.APIKey
+}
 
 /**
  * Ask the datas about one money from an api and put it in an array
@@ -56,7 +63,7 @@ async function askDatasFromApi(time, crypto) {
         const ohlcv = await fetch(url, {
             method: "GET",
             headers: {
-                'X-CoinAPI-Key': "81D78638-B2D6-4EAF-B3E8-12ECA628E6CE"
+                'X-CoinAPI-Key': await getAPIKey()
             }
         })
 
