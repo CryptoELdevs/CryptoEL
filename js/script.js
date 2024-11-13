@@ -13,10 +13,13 @@ searchbar.addEventListener("click", () => {
 //------------------------------------------CRYPTO GRAPH PART---------------------------------------->
 
 let cryptoValuesByPeriod = {};
+let numberOfLines = 0;
+let isCreated = false;
 
 const ctx = document.getElementById("candlestickChart").getContext("2d")
 
-let numberOfLines = 0;
+
+
 
 /**
  * Ask the datas about one money from an api and put it in an array
@@ -98,7 +101,7 @@ function buildGraph(crypto) {
         });
     }
 
-    if (window.cryptoGraph) {
+    if (isCreated) {
 
         // Mettre à jour les données du graphique existant
         window.cryptoGraph.data.datasets[0].labels = numberOfLabels;
@@ -131,6 +134,8 @@ function buildGraph(crypto) {
                 }
             }
         });
+
+        isCreated = true
     }
 }
 
@@ -160,13 +165,14 @@ async function showCrypto(time, crypto) {
 
     buildGraph(crypto)
 
-    setInterval(() => {
-        askDatasFromApi(time, crypto)
-    }, interval);
-
-    setInterval(() => {
+    setInterval( async() => {
+        await askDatasFromApi(time, crypto)
         buildGraph(crypto)
     }, interval);
 }
+
+window.addEventListener("beforeunload", () => {
+    isCreated = false;
+})
 
 showCrypto("h", "ETH")
