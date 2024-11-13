@@ -171,4 +171,4 @@ async function showCrypto(time, crypto) {
     }, interval);
 }
 
-showCrypto("h", "DOGE")
+showCrypto("h", "ETH")
