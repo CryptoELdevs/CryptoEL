@@ -128,8 +128,6 @@ function buildGraph(crypto) {
                     y: {
                         beginAtZero: false
                     }
-                },
-                animation: {
                 }
             }
         });

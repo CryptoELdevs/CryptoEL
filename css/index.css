@@ -1,6 +1,14 @@
+/*=============================================
+=        Import all the scss files            =
+=============================================*/
+/*=============================================
+=          Defines the website's fonts        =
+=============================================*/
 @import url("/assets/fonts/NicoMoji-regular.ttf");
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
-
+/*=============================================
+=        Some colors for the websites         =
+=============================================*/
 html,
 body,
 div,
@@ -133,6 +141,12 @@ table {
   border-spacing: 0;
 }
 
+/*=============================================
+=        Import all the scss files            =
+=============================================*/
+/*=============================================
+=            SCSS for the header              =
+=============================================*/
 header {
   display: flex;
   align-items: center;
@@ -141,17 +155,14 @@ header {
   height: auto;
   background-color: #0B192C;
 }
-
 header div,
 header nav {
   width: 33.3333333333vw;
 }
-
 header .searchBarContainer {
   display: flex;
   justify-content: center;
 }
-
 header .searchBarContainer .searchBar {
   width: 20vw;
   background-color: #EFEFEF;
@@ -161,7 +172,6 @@ header .searchBarContainer .searchBar {
   align-items: center;
   cursor: text;
 }
-
 header .searchBarContainer .searchBar .searchLogoSide {
   width: 12%;
   height: 70%;
@@ -169,11 +179,9 @@ header .searchBarContainer .searchBar .searchLogoSide {
   place-items: center;
   border-right: 1px solid rgba(128, 128, 128, 0.548);
 }
-
 header .searchBarContainer .searchBar .searchLogoSide i {
   color: rgba(70, 70, 70, 0.781);
 }
-
 header .searchBarContainer .searchBar input {
   background-color: transparent;
   border: none;
@@ -182,15 +190,12 @@ header .searchBarContainer .searchBar input {
   font-size: 1rem;
   width: 100%;
 }
-
 header .searchBarContainer .searchBar input::-moz-placeholder {
   color: rgb(182, 182, 182);
 }
-
 header .searchBarContainer .searchBar input::placeholder {
   color: rgb(182, 182, 182);
 }
-
 header img {
   width: 20rem;
   display: flex;
@@ -198,35 +203,35 @@ header img {
   filter: drop-shadow(0px 0px 1px black);
   cursor: pointer;
 }
-
 header nav {
   display: flex;
   justify-content: center;
   align-content: center;
   font-family: "Lexend", sans-serif;
 }
-
 header nav ul {
   display: flex;
   justify-content: center;
   align-content: center;
 }
-
 header nav ul li {
   margin: 0 1rem;
 }
-
 header nav ul li a {
   color: #FFFFFF;
   text-decoration: none;
 }
 
+canvas {
+  height: 40vh !important;
+  width: 120vh !important;
+}
+
+/*=====  End of imports ======*/
 body {
   background-color: #EFEFEF;
 }
 
 * {
   font-family: "Lexend", sans-serif;
-}
-
-/*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=index.css.map */
