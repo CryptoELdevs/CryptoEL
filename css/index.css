@@ -232,6 +232,23 @@ canvas {
   width: 80vh !important;
 }
 
+/*=============================================
+=        Import all the scss files            =
+=============================================*/
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10vh;
+}
+
+.cryptoCard {
+  width: 70vw;
+  height: 10vh;
+  background-color: #0B192C;
+  border-radius: 10px;
+}
+
 /*=====  End of imports ======*/
 body {
   background-color: #EFEFEF;

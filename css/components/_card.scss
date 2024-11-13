@@ -1,0 +1,15 @@
+@use "colors";
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10vh;
+}
+
+.cryptoCard {
+    width:  70vw;
+    height: 10vh;
+    background-color: colors.$darkBlue;
+    border-radius: 10px;
+}

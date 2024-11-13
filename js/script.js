@@ -117,7 +117,6 @@ function buildGraph(crypto) {
     } else {
         // Si aucun graphique n'existe, on en crée un nouveau
         const ctx = canvas.getContext('2d');
-        console.log(labels)
 
         window.cryptoGraph = new Chart(ctx, {
             type: 'candlestick',
