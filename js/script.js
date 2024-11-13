@@ -172,7 +172,7 @@ async function showCrypto(time, crypto) {
         const oldDatas = cryptoValuesByPeriod[crypto]
         await askDatasFromApi(time, crypto)
         if (cryptoValuesByPeriod[crypto] !== oldDatas)
-            buildGraph(crypto)
+            await buildGraph(crypto)
     }, 2000);
 }
 
