@@ -14,7 +14,6 @@ searchbar.addEventListener("click", () => {
 
 let cryptoValuesByPeriod = {};
 let numberOfLines = 0;
-let isCreated = false;
 
 const ctx = document.getElementById("candlestickChart").getContext("2d")
 
@@ -101,7 +100,7 @@ function buildGraph(crypto) {
         });
     }
 
-    if (isCreated) {
+    if (window.cryptoGraph) {
 
         // Mettre à jour les données du graphique existant
         window.cryptoGraph.data.datasets[0].labels = numberOfLabels;
@@ -117,7 +116,6 @@ function buildGraph(crypto) {
             type: 'candlestick',
             data: {
                 datasets: [{
-                    label: ` ${crypto} line`,
                     data: chartData
                 }]
             },
@@ -126,16 +124,29 @@ function buildGraph(crypto) {
                 scales: {
                     x: {
                         type: 'category',
-                        labels: labels
+                        labels: labels,
+                        title: {
+                            display: true,
+                            text: 'time that passed'
+                        }
                     },
                     y: {
-                        beginAtZero: false
+                        beginAtZero: false,
+                        title: {
+                            display: true,
+                            text: 'Price in $'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
                     }
                 }
             }
         });
 
-        isCreated = true
+        GraphAlreadyGenerated = true
     }
 }
 
@@ -146,33 +157,14 @@ function buildGraph(crypto) {
  * @param {string} crypto The crypto that you want to see
  */
 async function showCrypto(time, crypto) {
-    let interval = 0;
-    switch (time) {
-        case "h":
-            interval = 60 * 1000;
-            break;
-        case "d":
-            interval = 86400 * 1000;
-            break;
-        case "m":
-            interval = 2592 * 1000 * 1000;
-            break;
-        case "y":
-            interval = 31536 * 1000 * 1000;
-            break;
-    }
     await askDatasFromApi(time, crypto)
 
     buildGraph(crypto)
 
-    setInterval( async() => {
+    setInterval( async () => {
         await askDatasFromApi(time, crypto)
         buildGraph(crypto)
-    }, interval);
+    }, 10000);
 }
-
-window.addEventListener("beforeunload", () => {
-    isCreated = false;
-})
 
 showCrypto("h", "ETH")
