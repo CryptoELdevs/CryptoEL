@@ -168,10 +168,12 @@ async function showCrypto(time, crypto) {
 
     buildGraph(crypto)
 
-    setInterval( async () => {
+    setInterval(async () => {
+        const oldDatas = cryptoValuesByPeriod[crypto]
         await askDatasFromApi(time, crypto)
-        buildGraph(crypto)
-    }, 10000);
+        if (cryptoValuesByPeriod[crypto] !== oldDatas)
+            buildGraph(crypto)
+    }, 2000);
 }
 
 showCrypto("h", "ETH")
