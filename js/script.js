@@ -1,4 +1,4 @@
-
+const logo = document.querySelector(".logo")
 
 // Initialize search bar HTML elements
 const searchbar = document.querySelector(".searchBar");
@@ -175,4 +175,16 @@ async function showCrypto(time, crypto) {
     }, 5000);
 }
 
-showCrypto("h", "ETH")
+
+function changeLogo() {
+    const width = window.innerWidth
+
+    if (width < 1000)
+        logo.setAttribute("src", "./assets/img/logoCarre.png")
+    else
+        logo.setAttribute("src", "./assets/img/logoComplet.png")
+}
+
+window.addEventListener("resize", changeLogo)
+
+changeLogo()

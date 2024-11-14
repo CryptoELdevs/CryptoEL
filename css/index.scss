@@ -10,6 +10,7 @@
 @use "components/header";
 @use "components/graph";
 @use "components/card";
+@use "components/burgerIcon";
 
 /*=====  End of imports ======*/
 
@@ -20,4 +21,8 @@ body {
 
 * {
     font-family: fonts.$text-font;
+}
+
+main {
+    z-index: 0;
 }

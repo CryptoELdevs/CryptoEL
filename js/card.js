@@ -1,5 +1,5 @@
 const cards = document.querySelector(".cards")
-const input = document.querySelector("input")
+const input = document.querySelector(".searchInput")
 
 const cryptos = [
     { surname: "ETH", name: "Ethereum" },
@@ -132,7 +132,6 @@ function buildCryptoCard(crypto) {
 
 function search() {
     const inputValue = input.value
-    console.log(inputValue)
     const oldCryptos = document.querySelectorAll(".cards article") 
 
     const cryptosThatMatchInput = cryptos.filter(crypto => crypto.name.toLowerCase().includes(inputValue.toLowerCase()))
