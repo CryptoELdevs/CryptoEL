@@ -69,11 +69,16 @@ function buildCryptoCard(crypto) {
 
     cards.appendChild(card)
 
+    // Head div part
+    const head = document.createElement("div")
+    head.classList.add("head")
+    card.appendChild(head)
+
     // Names div part
     const names = document.createElement("div")
     names.classList.add("names")
 
-    card.appendChild(names)
+    head.appendChild(names)
 
     const firstPart = document.createElement("div")
     firstPart.classList.add("firstPart")
@@ -102,27 +107,27 @@ function buildCryptoCard(crypto) {
     blockchain.classList.add("blockchain")
     blockchain.textContent = "Bitcoin"
 
-    card.appendChild(blockchain)
+    head.appendChild(blockchain)
 
     // Percents part
     const percents = document.createElement("p")
     percents.classList.add("percents")
     percents.textContent = "+4.04%"
 
-    card.appendChild(percents)
+    head.appendChild(percents)
 
     // Price part
     const price = document.createElement("p")
     price.classList.add("price")
     price.textContent = "43825.43$"
 
-    card.appendChild(price)
+    head.appendChild(price)
 
     // See more button part
     const seeMore = document.createElement("button")
     seeMore.textContent = "See more"
 
-    card.appendChild(seeMore)
+    head.appendChild(seeMore)
 }
 
 function search() {
