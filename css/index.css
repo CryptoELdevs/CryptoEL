@@ -285,7 +285,6 @@ canvas {
 .cards .cryptoCard .names .name {
   max-width: 2rem;
   white-space: nowrap;
-  text-overflow: ellipsis;
 }
 .cards .cryptoCard .blockchain {
   font-size: 1.6rem;
