@@ -233,6 +233,20 @@ header nav ul li a:hover {
   }
 }
 @media only screen and (max-width: 1000px) {
+  .searchBarContainer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 50vw;
+  }
+  .searchBarContainer .searchBar {
+    width: 50vw !important;
+  }
+  header {
+    justify-content: flex-end;
+    padding-left: 80vw;
+  }
   .toggle {
     display: flex !important;
   }
@@ -392,6 +406,16 @@ canvas {
     transition: all 0.2s;
     color: #EFEFEF;
     background-color: #284B79;
+  }
+  .cards .cryptoCard .head .names {
+    width: 100% !important;
+    justify-content: center;
+  }
+  .cards .cryptoCard .head .names .name {
+    min-width: 4rem;
+    max-width: 5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 #checkbox {

@@ -123,6 +123,19 @@
                         background-color: #284B79;
                     }
                 }
+
+                .names {
+                    width: 100% !important;
+                    justify-content: center;
+                    
+                    .name {
+                        min-width: 4rem;
+                        max-width: 5rem;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                }
             }
         }
     }

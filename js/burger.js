@@ -30,3 +30,4 @@ function setLeft() {
 setLeft()
 
 burgerButton.addEventListener("click", changeOpen)
+window.addEventListener("resize", setLeft)

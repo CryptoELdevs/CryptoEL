@@ -105,6 +105,24 @@ header {
 }
 
 @media only screen and (max-width: 1000px) {
+
+    .searchBarContainer {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 50vw;
+
+        .searchBar {
+            width: 50vw !important;
+        }
+    }
+
+    header {
+        justify-content: flex-end;
+        padding-left: 80vw;
+    }
+
     .toggle {
         display: flex !important;
     }
