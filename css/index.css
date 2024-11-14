@@ -241,12 +241,32 @@ canvas {
   align-items: center;
   padding-top: 10vh;
 }
-
-.cryptoCard {
+.cards .cryptoCard {
   width: 70vw;
-  height: 10vh;
-  background-color: #0B192C;
+  height: 5vh;
+  border: 2px solid #193253;
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  justify-content: space-between;
+}
+.cards .cryptoCard .names {
+  display: flex;
+  width: 7rem;
+  justify-content: space-between;
+}
+.cards .cryptoCard .names .surname {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.cards .cryptoCard .names .separator {
+  height: 100%;
+  width: 2px;
+  background-color: #193253;
+}
+.cards .cryptoCard .blockchain {
+  font-size: 1.6rem;
 }
 
 /*=====  End of imports ======*/

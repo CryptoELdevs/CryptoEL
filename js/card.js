@@ -13,6 +13,7 @@ function createCard(crypto) {
 async function getNameAndPrice(crypto) {
     const apiKey = await getAPIKey()
     const url = `https://rest.coinapi.io/v1/exchangerate/${crypto}/USD`
+    console.log(apiKey)
     const response = await fetch(url, {
         method: "GET",
         headers: {
