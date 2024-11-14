@@ -248,12 +248,16 @@ canvas {
   border-radius: 10px;
   display: flex;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0 5px 0 1rem;
   justify-content: space-between;
+  color: #333;
+}
+.cards .cryptoCard * {
+  cursor: default;
 }
 .cards .cryptoCard .names {
   display: flex;
-  width: 7rem;
+  width: 12rem;
   justify-content: space-between;
 }
 .cards .cryptoCard .names .surname {
@@ -267,6 +271,20 @@ canvas {
 }
 .cards .cryptoCard .blockchain {
   font-size: 1.6rem;
+}
+.cards .cryptoCard button {
+  background-color: #284B79;
+  border: none;
+  outline: none;
+  height: 80%;
+  border-radius: 7px;
+  padding: 0 10px;
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.cards .cryptoCard button:hover {
+  background-color: #19365c;
 }
 
 /*=====  End of imports ======*/
