@@ -4,8 +4,36 @@ const cryptos = [
     "ETH",
     "BTC",
     "DOGE",
-    "BNB"
-]
+    "BNB",
+    "ADA",    // Cardano
+    "SOL",    // Solana
+    "XRP",    // Ripple
+    "DOT",    // Polkadot
+    "LTC",    // Litecoin
+    "AVAX",   // Avalanche
+    "LINK",   // Chainlink
+    "XLM",    // Stellar
+    "UNI",    // Uniswap
+    "ATOM",   // Cosmos
+    "FIL",    // Filecoin
+    "TRX",    // TRON
+    "ETC",    // Ethereum Classic
+    "VET",    // VeChain
+    "ALGO",   // Algorand
+    "MATIC",  // Polygon
+    "ICP",    // Internet Computer
+    "THETA",  // Theta
+    "AAVE",   // Aave
+    "XTZ",    // Tezos
+    "FTT",    // FTX Token
+    "EOS",    // EOS
+    "SUSHI",  // SushiSwap
+    "CAKE",   // PancakeSwap
+    "ZEC",    // Zcash
+    "ENJ",    // Enjin Coin
+    "GRT"     // The Graph
+];
+
 
 async function getAPIKey() {
     let infos = await fetch("../config/config.json")
@@ -93,6 +121,10 @@ function buildCryptoCard(crypto) {
         seeMore.textContent = "See more"
 
         card.appendChild(seeMore)
+}
+
+function search() {
+    
 }
 
 buildAllCryptoCards()
