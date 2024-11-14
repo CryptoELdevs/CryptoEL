@@ -1,38 +1,40 @@
 const cards = document.querySelector(".cards")
+const input = document.querySelector("input")
 
 const cryptos = [
-    "ETH",
-    "BTC",
-    "DOGE",
-    "BNB",
-    "ADA",    // Cardano
-    "SOL",    // Solana
-    "XRP",    // Ripple
-    "DOT",    // Polkadot
-    "LTC",    // Litecoin
-    "AVAX",   // Avalanche
-    "LINK",   // Chainlink
-    "XLM",    // Stellar
-    "UNI",    // Uniswap
-    "ATOM",   // Cosmos
-    "FIL",    // Filecoin
-    "TRX",    // TRON
-    "ETC",    // Ethereum Classic
-    "VET",    // VeChain
-    "ALGO",   // Algorand
-    "MATIC",  // Polygon
-    "ICP",    // Internet Computer
-    "THETA",  // Theta
-    "AAVE",   // Aave
-    "XTZ",    // Tezos
-    "FTT",    // FTX Token
-    "EOS",    // EOS
-    "SUSHI",  // SushiSwap
-    "CAKE",   // PancakeSwap
-    "ZEC",    // Zcash
-    "ENJ",    // Enjin Coin
-    "GRT"     // The Graph
+    { surname: "ETH", name: "Ethereum" },
+    { surname: "BTC", name: "Bitcoin" },
+    { surname: "DOGE", name: "Dogecoin" },
+    { surname: "BNB", name: "Binance Coin" },
+    { surname: "ADA", name: "Cardano" },
+    { surname: "SOL", name: "Solana" },
+    { surname: "XRP", name: "XRP" },
+    { surname: "DOT", name: "Polkadot" },
+    { surname: "LTC", name: "Litecoin" },
+    { surname: "AVAX", name: "Avalanche" },
+    { surname: "LINK", name: "Chainlink" },
+    { surname: "XLM", name: "Stellar" },
+    { surname: "UNI", name: "Uniswap" },
+    { surname: "ATOM", name: "Cosmos" },
+    { surname: "FIL", name: "Filecoin" },
+    { surname: "TRX", name: "Tron" },
+    { surname: "ETC", name: "Ethereum Classic" },
+    { surname: "VET", name: "VeChain" },
+    { surname: "ALGO", name: "Algorand" },
+    { surname: "MATIC", name: "Polygon" },
+    { surname: "ICP", name: "Internet Computer" },
+    { surname: "THETA", name: "Theta Network" },
+    { surname: "AAVE", name: "Aave" },
+    { surname: "XTZ", name: "Tezos" },
+    { surname: "FTT", name: "FTX Token" },
+    { surname: "EOS", name: "EOS" },
+    { surname: "SUSHI", name: "SushiSwap" },
+    { surname: "CAKE", name: "PancakeSwap" },
+    { surname: "ZEC", name: "Zcash" },
+    { surname: "ENJ", name: "Enjin Coin" },
+    { surname: "GRT", name: "The Graph" }
 ];
+
 
 
 async function getAPIKey() {
@@ -40,11 +42,6 @@ async function getAPIKey() {
     infos = await infos.json()
 
     return infos.CoinAPI.APIKey
-}
-
-function createCard(crypto) {
-    const card = document.createElement("div")
-    card.classList.add("cryptoCard")
 }
 
 async function getNameAndPrice(crypto) {
@@ -67,64 +64,80 @@ function buildAllCryptoCards() {
 }
 
 function buildCryptoCard(crypto) {
-        const card = document.createElement("article")
-        card.classList.add("cryptoCard")
+    const card = document.createElement("article")
+    card.classList.add("cryptoCard")
 
-        cards.appendChild(card)
-        
-        // Names div part
-        const names = document.createElement("div")
-        names.classList.add("names")
+    cards.appendChild(card)
 
-        card.appendChild(names)
+    // Names div part
+    const names = document.createElement("div")
+    names.classList.add("names")
 
-        const surname = document.createElement("p")
-        surname.classList.add("surname")
-        surname.textContent = crypto
+    card.appendChild(names)
 
-        names.appendChild(surname)
+    const firstPart = document.createElement("div")
+    firstPart.classList.add("firstpart")
 
-        const separator = document.createElement("div")
-        separator.classList.add("separator")
+    names.appendChild(firstPart)
 
-        names.appendChild(separator)
+    const surname = document.createElement("p")
+    surname.classList.add("surname")
+    surname.textContent = crypto.surname
 
-        const name = document.createElement("p")
-        name.classList.add("name")
-        name.textContent = "Bitcoin"
+    firstPart.appendChild(surname)
 
-        names.appendChild(name)
+    const separator = document.createElement("div")
+    separator.classList.add("separator")
 
-        // Blochain part
-        const blockchain = document.createElement("p")
-        blockchain.classList.add("blockchain")
-        blockchain.textContent = "Bitcoin"
+    firstPart.appendChild(separator)
 
-        card.appendChild(blockchain)
+    const name = document.createElement("p")
+    name.classList.add("name")
+    name.textContent = crypto.name
 
-        // Percents part
-        const percents = document.createElement("p")
-        percents.classList.add("percents")
-        percents.textContent = "+4.04%"
+    names.appendChild(name)
 
-        card.appendChild(percents)
+    // Blochain part
+    const blockchain = document.createElement("p")
+    blockchain.classList.add("blockchain")
+    blockchain.textContent = "Bitcoin"
 
-        // Price part
-        const price = document.createElement("p")
-        price.classList.add("price")
-        price.textContent = "43825.43$"
+    card.appendChild(blockchain)
 
-        card.appendChild(price)
+    // Percents part
+    const percents = document.createElement("p")
+    percents.classList.add("percents")
+    percents.textContent = "+4.04%"
 
-        // See more button part
-        const seeMore = document.createElement("button")
-        seeMore.textContent = "See more"
+    card.appendChild(percents)
 
-        card.appendChild(seeMore)
+    // Price part
+    const price = document.createElement("p")
+    price.classList.add("price")
+    price.textContent = "43825.43$"
+
+    card.appendChild(price)
+
+    // See more button part
+    const seeMore = document.createElement("button")
+    seeMore.textContent = "See more"
+
+    card.appendChild(seeMore)
 }
 
 function search() {
-    
+    const inputValue = input.value
+    const oldCryptos = document.querySelectorAll(".cards article") 
+
+    const cryptosThatMatchInput = cryptos.filter(crypto => crypto.toLowerCase().includes(inputValue.toLowerCase()))
+
+    oldCryptos.forEach(oldCrypto => oldCrypto.remove())
+
+    cryptosThatMatchInput.forEach(cryptoThatMatchInput => buildCryptoCard(cryptoThatMatchInput))
 }
 
 buildAllCryptoCards()
+
+input.addEventListener("input", (e) => {
+        search()
+})

@@ -18,7 +18,7 @@ let numberOfLines = 0;
 const ctx = document.getElementById("candlestickChart").getContext("2d")
 
 /**
- * Get the api
+ * Get the API key
  */
 async function getAPIKey() {
     let infos = await fetch("../config/config.json")
@@ -172,7 +172,7 @@ async function showCrypto(time, crypto) {
         await askDatasFromApi(time, crypto)
         if (cryptoValuesByPeriod[crypto] !== oldDatas)
             await buildGraph(crypto)
-    }, 2000);
+    }, 5000);
 }
 
 showCrypto("h", "ETH")
