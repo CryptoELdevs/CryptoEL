@@ -7,19 +7,6 @@
     padding-top: 10vh;
     gap: 1rem;
 
-    .presentation {
-        width: 60vw;
-        padding: 0 2rem 0 3rem;
-        display: flex;
-        justify-content: space-between;
-        color: #555;
-        padding-bottom: 5px;
-
-        .firstP {
-            width: 5.5rem;
-        }
-    }
-
     .cryptoCard {
         width: 60vw;
         height: 3rem;
@@ -46,10 +33,12 @@
         .names {
             display: flex;
             width: 8rem;
-            justify-content: space-between;
+            gap: 10px;
 
             .firstPart {
                 display: flex;
+                width: 3rem;
+                justify-content: space-between;
 
                 .surname {
                     font-size: 1.2rem;
@@ -66,7 +55,7 @@
             .name {
                 max-width: 2rem;
                 white-space: nowrap;
-                overflow: hidden;
+                text-overflow: ellipsis;
             }
         }
 

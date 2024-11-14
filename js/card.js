@@ -4,32 +4,32 @@ const input = document.querySelector("input")
 const cryptos = [
     { surname: "ETH", name: "Ethereum" },
     { surname: "BTC", name: "Bitcoin" },
-    { surname: "DOGE", name: "Dogecoin" },
+    { surname: "DOG", name: "Dogecoin" },
     { surname: "BNB", name: "Binance Coin" },
     { surname: "ADA", name: "Cardano" },
     { surname: "SOL", name: "Solana" },
     { surname: "XRP", name: "XRP" },
     { surname: "DOT", name: "Polkadot" },
     { surname: "LTC", name: "Litecoin" },
-    { surname: "AVAX", name: "Avalanche" },
-    { surname: "LINK", name: "Chainlink" },
+    { surname: "AVA", name: "Avalanche" },
+    { surname: "LIN", name: "Chainlink" },
     { surname: "XLM", name: "Stellar" },
     { surname: "UNI", name: "Uniswap" },
-    { surname: "ATOM", name: "Cosmos" },
+    { surname: "ATO", name: "Cosmos" },
     { surname: "FIL", name: "Filecoin" },
     { surname: "TRX", name: "Tron" },
     { surname: "ETC", name: "Ethereum Classic" },
     { surname: "VET", name: "VeChain" },
-    { surname: "ALGO", name: "Algorand" },
-    { surname: "MATIC", name: "Polygon" },
+    { surname: "ALG", name: "Algorand" },
+    { surname: "MAT", name: "Polygon" },
     { surname: "ICP", name: "Internet Computer" },
-    { surname: "THETA", name: "Theta Network" },
-    { surname: "AAVE", name: "Aave" },
+    { surname: "THE", name: "Theta Network" },
+    { surname: "AAV", name: "Aave" },
     { surname: "XTZ", name: "Tezos" },
     { surname: "FTT", name: "FTX Token" },
     { surname: "EOS", name: "EOS" },
-    { surname: "SUSHI", name: "SushiSwap" },
-    { surname: "CAKE", name: "PancakeSwap" },
+    { surname: "SUS", name: "SushiSwap" },
+    { surname: "CAK", name: "PancakeSwap" },
     { surname: "ZEC", name: "Zcash" },
     { surname: "ENJ", name: "Enjin Coin" },
     { surname: "GRT", name: "The Graph" }
@@ -76,7 +76,7 @@ function buildCryptoCard(crypto) {
     card.appendChild(names)
 
     const firstPart = document.createElement("div")
-    firstPart.classList.add("firstpart")
+    firstPart.classList.add("firstPart")
 
     names.appendChild(firstPart)
 
@@ -127,9 +127,10 @@ function buildCryptoCard(crypto) {
 
 function search() {
     const inputValue = input.value
+    console.log(inputValue)
     const oldCryptos = document.querySelectorAll(".cards article") 
 
-    const cryptosThatMatchInput = cryptos.filter(crypto => crypto.toLowerCase().includes(inputValue.toLowerCase()))
+    const cryptosThatMatchInput = cryptos.filter(crypto => crypto.name.toLowerCase().includes(inputValue.toLowerCase()))
 
     oldCryptos.forEach(oldCrypto => oldCrypto.remove())
 
@@ -138,6 +139,6 @@ function search() {
 
 buildAllCryptoCards()
 
-input.addEventListener("input", (e) => {
+input.addEventListener("input", () => {
         search()
 })
