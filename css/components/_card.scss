@@ -5,11 +5,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10vh;
+    margin-top: 2rem;
     padding: 2rem 0;
     gap: 1rem;
     background-color: #ffffff;
     box-shadow: 0 0 3px 0 rgba(167, 167, 167, 0.445);
+    width: 100vw;
+    min-height: 100vh;
+
+    h1 {
+        font-size: 1.8rem;
+        font-weight: 300;
+    }
 
     .cryptoCard {
         width: 60vw;
@@ -28,7 +35,7 @@
             box-shadow: #386aac17 0px 0px 15px 5px;
             transition: all 0.2s;
             transform: scale(1.006);
-            background-color: #ededed;
+            background-color: #f7f9ff;
         }
 
         .head {
@@ -36,6 +43,11 @@
             align-items: center;
             justify-content: space-between;
             height: 2.7rem;
+
+            * {
+                width: 20%;
+                text-align: center;
+            }
 
             .names {
                 display: flex;
@@ -60,8 +72,10 @@
                 }
 
                 .name {
-                    max-width: 0;
+                    width: 50%;
                     white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
                 }
             }
         }
@@ -81,6 +95,7 @@
             font-size: 1.2rem;
             font-family: fonts.$title-font;
             cursor: pointer;
+            width: 9rem !important;
 
             &:hover {
                 background-color: #19365c;
@@ -89,7 +104,7 @@
     }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1100px) {
     .cryptoCard {
         width: 80vw !important;
     }
@@ -102,6 +117,11 @@
         gap: 2rem;
         justify-content: center;
 
+        h1 {
+            width: 100vw;
+            text-align: center;
+        }
+
         .cryptoCard {
             width: 30vw !important;
             height: 35vh !important;
@@ -113,18 +133,23 @@
                 flex-direction: column;
                 height: 30vh !important;
 
+                * {
+                    width: auto;
+                }
+
                 button {
                     height: 2.5rem !important;
                     transition: all 0.2s;
+                    width: 70% !important;
                 }
 
                 .names {
                     width: 100% !important;
                     justify-content: center;
-                    
+
                     .name {
                         min-width: 4rem;
-                        max-width: 5rem;
+                        max-width: 7rem;
                         overflow: hidden;
                         text-overflow: ellipsis;
                     }

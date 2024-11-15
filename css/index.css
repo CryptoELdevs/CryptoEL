@@ -220,11 +220,14 @@ header nav ul li {
 header nav ul li a {
   color: #FFFFFF;
   text-decoration: none;
-  transition: all 0.3s;
+  transition: color 0.3s;
+  background: -webkit-linear-gradient(45deg, #7987ff, #cecdff);
+  -webkit-background-clip: text;
+  font-size: 1.2rem !important;
 }
 header nav ul li a:hover {
-  transition: all 0.3s;
-  color: rgb(219, 190, 219);
+  color: transparent;
+  transition: color 0.3s;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -261,8 +264,8 @@ header nav ul li a:hover {
     left: -50vw;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.616);
-    -webkit-backdrop-filter: blur(2px);
-            backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(3px);
+            backdrop-filter: blur(3px);
     border-right: 2px solid rgb(7, 7, 53);
     z-index: 2;
     transition: all 0.4s;
@@ -280,10 +283,8 @@ header nav ul li a:hover {
     margin: 3vh 0 !important;
     font-size: 1.5rem;
   }
-  nav ul li a:hover {
-    background: -webkit-linear-gradient(45deg, #7987ff, #cecdff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  nav ul li a {
+    font-weight: 300;
   }
 }
 @media only screen and (max-width: 700px) {
@@ -303,11 +304,17 @@ canvas {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10vh;
+  margin-top: 2rem;
   padding: 2rem 0;
   gap: 1rem;
   background-color: #ffffff;
   box-shadow: 0 0 3px 0 rgba(167, 167, 167, 0.445);
+  width: 100vw;
+  min-height: 100vh;
+}
+.cards h1 {
+  font-size: 1.8rem;
+  font-weight: 300;
 }
 .cards .cryptoCard {
   width: 60vw;
@@ -325,13 +332,17 @@ canvas {
   box-shadow: rgba(56, 106, 172, 0.0901960784) 0px 0px 15px 5px;
   transition: all 0.2s;
   transform: scale(1.006);
-  background-color: #ededed;
+  background-color: #f7f9ff;
 }
 .cards .cryptoCard .head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 2.7rem;
+}
+.cards .cryptoCard .head * {
+  width: 20%;
+  text-align: center;
 }
 .cards .cryptoCard .head .names {
   display: flex;
@@ -353,8 +364,10 @@ canvas {
   background-color: #193253;
 }
 .cards .cryptoCard .head .names .name {
-  max-width: 0;
+  width: 50%;
   white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .cards .cryptoCard .blockchain {
   font-size: 1.6rem;
@@ -370,12 +383,13 @@ canvas {
   font-size: 1.2rem;
   font-family: "NicoMoji", sans-serif;
   cursor: pointer;
+  width: 9rem !important;
 }
 .cards .cryptoCard button:hover {
   background-color: #19365c;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1100px) {
   .cryptoCard {
     width: 80vw !important;
   }
@@ -386,6 +400,10 @@ canvas {
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
+  }
+  .cards h1 {
+    width: 100vw;
+    text-align: center;
   }
   .cards .cryptoCard {
     width: 30vw !important;
@@ -398,9 +416,13 @@ canvas {
     flex-direction: column;
     height: 30vh !important;
   }
+  .cards .cryptoCard .head * {
+    width: auto;
+  }
   .cards .cryptoCard .head button {
     height: 2.5rem !important;
     transition: all 0.2s;
+    width: 70% !important;
   }
   .cards .cryptoCard .head .names {
     width: 100% !important;
@@ -408,7 +430,7 @@ canvas {
   }
   .cards .cryptoCard .head .names .name {
     min-width: 4rem;
-    max-width: 5rem;
+    max-width: 7rem;
     overflow: hidden;
     text-overflow: ellipsis;
   }
@@ -474,6 +496,29 @@ canvas {
 #checkbox:checked + .toggle {
   transition-duration: 0.5s;
   transform: rotate(180deg);
+}
+
+.blocks {
+  height: 50vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 3rem;
+}
+.blocks .trending {
+  width: 20rem;
+  height: 25rem;
+  background-color: #fff;
+  box-shadow: 2px 2px 4.5px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+}
+.blocks .trending h1 {
+  font-size: 1.8rem;
+  font-weight: 300;
 }
 
 /*=====  End of imports ======*/

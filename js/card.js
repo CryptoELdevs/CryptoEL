@@ -57,12 +57,20 @@ async function getNameAndPrice(crypto) {
     console.log(await response.json())
 }
 
+/**
+ * Show all the crypto cards that need to be at start
+ */
 function buildAllCryptoCards() {
     cryptos.forEach(crypto => {
         buildCryptoCard(crypto)
     })
 }
 
+/**
+ * Build one crypto cards defined by the crypto it shows
+ * 
+ * @param {string} crypto 
+ */
 function buildCryptoCard(crypto) {
     const card = document.createElement("article")
     card.classList.add("cryptoCard")
@@ -130,10 +138,30 @@ function buildCryptoCard(crypto) {
     head.appendChild(seeMore)
 }
 
-function search() {
-    const inputValue = input.value
-    const oldCryptos = document.querySelectorAll(".cards article") 
+/* Search part */
 
+const blocks = document.querySelector(".blocks")
+
+/**
+ * Show cards that marches the user input and show or not blocks if the user searched
+ */
+function search() {
+    /* Initialisation */
+    const inputValue = input.value
+    const oldCryptos = document.querySelectorAll(".cards article")
+    const cardsDiv = document.querySelector(".cards")
+
+    /* If the user search, remove the blocks else show them */
+    if (!inputValue) {
+        blocks.style.display = "flex"
+        cardsDiv.style.marginTop = "2rem"
+    }
+    else {
+        blocks.style.display = "none"
+        cardsDiv.style.marginTop = "0"
+    }
+
+    /* Get all the cryptos that matches the input and replace old by them */
     const cryptosThatMatchInput = cryptos.filter(crypto => crypto.name.toLowerCase().includes(inputValue.toLowerCase()))
 
     oldCryptos.forEach(oldCrypto => oldCrypto.remove())
@@ -144,5 +172,5 @@ function search() {
 buildAllCryptoCards()
 
 input.addEventListener("input", () => {
-        search()
+    search()
 })
