@@ -1,5 +1,6 @@
 const cards = document.querySelector(".cards")
 const input = document.querySelector(".searchInput")
+const cardsDiv = document.querySelector(".cards")
 
 const cryptos = [
     { surname: "ETH", name: "Ethereum" },
@@ -35,8 +36,6 @@ const cryptos = [
     { surname: "GRT", name: "The Graph" }
 ];
 
-
-
 async function getAPIKey() {
     let infos = await fetch("../config/config.json")
     infos = await infos.json()
@@ -69,7 +68,7 @@ function buildAllCryptoCards() {
 /**
  * Build one crypto cards defined by the crypto it shows
  * 
- * @param {string} crypto 
+ * @param {string} crypto The crypto you want to build the card
  */
 function buildCryptoCard(crypto) {
     const card = document.createElement("article")
@@ -143,15 +142,11 @@ function buildCryptoCard(crypto) {
 const blocks = document.querySelector(".blocks")
 
 /**
- * Show cards that marches the user input and show or not blocks if the user searched
+ * Show the blocks section or not in function of the input in parameter
+ * 
+ * @param {string} inputValue The input of the user
  */
-function search() {
-    /* Initialisation */
-    const inputValue = input.value
-    const oldCryptos = document.querySelectorAll(".cards article")
-    const cardsDiv = document.querySelector(".cards")
-
-    /* If the user search, remove the blocks else show them */
+function showBlocksOrNot(inputValue) {
     if (!inputValue) {
         blocks.style.height = "50vh"
         blocks.style.minHeight = "30rem"
@@ -168,6 +163,18 @@ function search() {
         blocks.style.opacity = "0"
         cardsDiv.style.marginTop = "0"
     }
+}
+
+/**
+ * Show cards that marches the user input and show or not blocks if the user searched
+ */
+function search() {
+    /* Initialisation */
+    const inputValue = input.value
+    const oldCryptos = document.querySelectorAll(".cards article")
+
+    /* If the user search, remove the blocks else show them */
+    showBlocksOrNot(inputValue)
 
     /* Get all the cryptos that matches the input and replace old by them */
     const cryptosThatMatchInput = cryptos.filter(crypto => crypto.name.toLowerCase().includes(inputValue.toLowerCase()))
