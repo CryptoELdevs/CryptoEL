@@ -115,16 +115,7 @@
 
                 button {
                     height: 2.5rem !important;
-                    border: 1px solid #284B79;
-                    background-color: transparent;
-                    color: colors.$textBlack;
                     transition: all 0.2s;
-
-                    &:hover {
-                        transition: all 0.2s;
-                        color: colors.$background-color;
-                        background-color: #284B79;
-                    }
                 }
 
                 .names {
