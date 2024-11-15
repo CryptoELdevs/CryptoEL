@@ -400,10 +400,9 @@ canvas {
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
-  }
-  .cards h1 {
-    width: 100vw;
-    text-align: center;
+    align-items: flex-start h1;
+    align-items-width: 100vw;
+    align-items-text-align: center;
   }
   .cards .cryptoCard {
     width: 30vw !important;
