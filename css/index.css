@@ -332,7 +332,7 @@ canvas {
   box-shadow: rgba(56, 106, 172, 0.0901960784) 0px 0px 15px 5px;
   transition: all 0.2s;
   transform: scale(1.006);
-  background-color: #f7f9ff;
+  background-color: #f6f9ff;
 }
 .cards .cryptoCard .head {
   display: flex;
@@ -410,6 +410,9 @@ canvas {
     height: 35vh !important;
     padding: 1rem 0 !important;
     min-width: 10rem;
+  }
+  .cards .cryptoCard:hover {
+    background-color: #fff;
   }
   .cards .cryptoCard .head {
     align-items: center;

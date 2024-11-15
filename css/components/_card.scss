@@ -35,7 +35,7 @@
             box-shadow: #386aac17 0px 0px 15px 5px;
             transition: all 0.2s;
             transform: scale(1.006);
-            background-color: #f7f9ff;
+            background-color: #f6f9ff;
         }
 
         .head {
@@ -127,6 +127,10 @@
             height: 35vh !important;
             padding: 1rem 0 !important;
             min-width: 10rem;
+
+            &:hover {
+                background-color: #fff;
+            }
 
             .head {
                 align-items: center;
