@@ -3,37 +3,37 @@ const input = document.querySelector(".searchInput")
 const cardsDiv = document.querySelector(".cards")
 
 const cryptos = [
-    { surname: "ETH", name: "Ethereum" },
-    { surname: "BTC", name: "Bitcoin" },
-    { surname: "DOG", name: "Dogecoin" },
-    { surname: "BNB", name: "Binance Coin" },
-    { surname: "ADA", name: "Cardano" },
-    { surname: "SOL", name: "Solana" },
-    { surname: "XRP", name: "XRP" },
-    { surname: "DOT", name: "Polkadot" },
-    { surname: "LTC", name: "Litecoin" },
-    { surname: "AVA", name: "Avalanche" },
-    { surname: "LIN", name: "Chainlink" },
-    { surname: "XLM", name: "Stellar" },
-    { surname: "UNI", name: "Uniswap" },
-    { surname: "ATO", name: "Cosmos" },
-    { surname: "FIL", name: "Filecoin" },
-    { surname: "TRX", name: "Tron" },
-    { surname: "ETC", name: "Ethereum Classic" },
-    { surname: "VET", name: "VeChain" },
-    { surname: "ALG", name: "Algorand" },
-    { surname: "MAT", name: "Polygon" },
-    { surname: "ICP", name: "Internet Computer" },
-    { surname: "THE", name: "Theta Network" },
-    { surname: "AAV", name: "Aave" },
-    { surname: "XTZ", name: "Tezos" },
-    { surname: "FTT", name: "FTX Token" },
-    { surname: "EOS", name: "EOS" },
-    { surname: "SUS", name: "SushiSwap" },
-    { surname: "CAK", name: "PancakeSwap" },
-    { surname: "ZEC", name: "Zcash" },
-    { surname: "ENJ", name: "Enjin Coin" },
-    { surname: "GRT", name: "The Graph" }
+    { surname: "ETH", name: "Ethereum", sector: "Smart Contracts" },
+    { surname: "BTC", name: "Bitcoin", sector: "Store of Value" },
+    { surname: "DOG", name: "Dogecoin", sector: "Meme Coin" },
+    { surname: "BNB", name: "Binance Coin", sector: "Exchange Token" },
+    { surname: "ADA", name: "Cardano", sector: "Smart Contracts" },
+    { surname: "SOL", name: "Solana", sector: "Smart Contracts" },
+    { surname: "XRP", name: "XRP", sector: "Payments" },
+    { surname: "DOT", name: "Polkadot", sector: "Interoperability" },
+    { surname: "LTC", name: "Litecoin", sector: "Payments" },
+    { surname: "AVA", name: "Avalanche", sector: "Smart Contracts" },
+    { surname: "LIN", name: "Chainlink", sector: "Oracles" },
+    { surname: "XLM", name: "Stellar", sector: "Payments" },
+    { surname: "UNI", name: "Uniswap", sector: "Decentralized Exchange (DEX)" },
+    { surname: "ATO", name: "Cosmos", sector: "Interoperability" },
+    { surname: "FIL", name: "Filecoin", sector: "Decentralized Storage" },
+    { surname: "TRX", name: "Tron", sector: "Smart Contracts" },
+    { surname: "ETC", name: "Ethereum Classic", sector: "Smart Contracts" },
+    { surname: "VET", name: "VeChain", sector: "Supply Chain" },
+    { surname: "ALG", name: "Algorand", sector: "Smart Contracts" },
+    { surname: "MAT", name: "Polygon", sector: "Layer 2 Scaling" },
+    { surname: "ICP", name: "Internet Computer", sector: "Decentralized Computing" },
+    { surname: "THE", name: "Theta Network", sector: "Streaming & Content" },
+    { surname: "AAV", name: "Aave", sector: "DeFi Lending" },
+    { surname: "XTZ", name: "Tezos", sector: "Smart Contracts" },
+    { surname: "FTT", name: "FTX Token", sector: "Exchange Token" },
+    { surname: "EOS", name: "EOS", sector: "Smart Contracts" },
+    { surname: "SUS", name: "SushiSwap", sector: "Decentralized Exchange (DEX)" },
+    { surname: "CAK", name: "PancakeSwap", sector: "Decentralized Exchange (DEX)" },
+    { surname: "ZEC", name: "Zcash", sector: "Privacy" },
+    { surname: "ENJ", name: "Enjin Coin", sector: "Gaming & NFTs" },
+    { surname: "GRT", name: "The Graph", sector: "Indexing Protocol" }
 ];
 
 async function getAPIKey() {
@@ -73,6 +73,7 @@ function buildAllCryptoCards() {
 function buildCryptoCard(crypto) {
     const card = document.createElement("article")
     card.classList.add("cryptoCard")
+    card.classList.add(crypto.sector.replace(/ /g, "-"))
 
     cards.appendChild(card)
 
