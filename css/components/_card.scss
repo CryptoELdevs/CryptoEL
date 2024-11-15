@@ -116,7 +116,7 @@
         flex-wrap: wrap;
         gap: 2rem;
         justify-content: center;
-        align-items: flex-start
+        min-height: 0;
 
         h1 {
             width: 100vw;
