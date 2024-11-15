@@ -153,11 +153,19 @@ function search() {
 
     /* If the user search, remove the blocks else show them */
     if (!inputValue) {
-        blocks.style.display = "flex"
+        blocks.style.height = "50vh"
+        blocks.style.minHeight = "30rem"
+        blocks.style.pointerEvents = "auto"
+        blocks.style.opacity = "1"
+        blocks.style.paddingTop = "3rem"
         cardsDiv.style.marginTop = "2rem"
     }
     else {
-        blocks.style.display = "none"
+        blocks.style.height = "0"
+        blocks.style.minHeight = "0"
+        blocks.style.paddingTop = "0"
+        blocks.style.pointerEvents = "none"
+        blocks.style.opacity = "0"
         cardsDiv.style.marginTop = "0"
     }
 
@@ -166,7 +174,21 @@ function search() {
 
     oldCryptos.forEach(oldCrypto => oldCrypto.remove())
 
-    cryptosThatMatchInput.forEach(cryptoThatMatchInput => buildCryptoCard(cryptoThatMatchInput))
+    if (cryptosThatMatchInput.length > 0) {
+        // rebuild the h1 if he doesn't exists
+        const oldh1 = cardsDiv.querySelector("h1")
+        if (!oldh1) {
+            const h1 = document.createElement("h1")
+            h1.textContent = "All coins"
+
+            cardsDiv.appendChild(h1)
+        }
+
+        cardsDiv.textContent = ""
+        cryptosThatMatchInput.forEach(cryptoThatMatchInput => buildCryptoCard(cryptoThatMatchInput))
+    }
+    else
+        cardsDiv.textContent = "No coin found"
 }
 
 buildAllCryptoCards()
