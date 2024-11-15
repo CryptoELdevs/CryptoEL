@@ -316,6 +316,9 @@ canvas {
   font-size: 1.8rem;
   font-weight: 300;
 }
+.cards * {
+  cursor: default;
+}
 .cards .cryptoCard {
   width: 60vw;
   border: 2px solid #193253;
@@ -324,9 +327,6 @@ canvas {
   color: #333;
   transition: all 0.2s;
   height: 3rem;
-}
-.cards .cryptoCard * {
-  cursor: default;
 }
 .cards .cryptoCard:hover {
   box-shadow: rgba(56, 106, 172, 0.0901960784) 0px 0px 15px 5px;

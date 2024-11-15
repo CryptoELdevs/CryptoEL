@@ -18,6 +18,10 @@
         font-weight: 300;
     }
 
+    * {
+        cursor: default;
+    }
+
     .cryptoCard {
         width: 60vw;
         border: 2px solid #193253;
@@ -26,10 +30,6 @@
         color: colors.$textBlack;
         transition: all 0.2s;
         height: 3rem;
-
-        & * {
-            cursor: default;
-        }
 
         &:hover {
             box-shadow: #386aac17 0px 0px 15px 5px;
