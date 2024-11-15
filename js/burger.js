@@ -20,20 +20,15 @@ function changeOpen() {
 function setLeft() {
     if (!menuOpened) {
         let vwLeft = 0
-        let fontSize = ""
+        
         if (window.innerWidth <= 700) {
             vwLeft = 100
-            fontSize = "2rem"
         }
         else {
             vwLeft = 50
-            fontSize = "1.5rem"
         }
 
         menu.style.left = -vwLeft + "vw"
-        menu.querySelectorAll("ul li a").forEach(a => {
-            a.style.fontSize = fontSize
-        });
     }
 }
 

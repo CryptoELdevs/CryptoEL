@@ -90,6 +90,7 @@ header {
                     background: -webkit-linear-gradient(45deg, #7987ff, #cecdff);
                     -webkit-background-clip: text;
                     font-size: 1.2rem !important;
+                    white-space: nowrap;
 
                     &:hover {
                         color: transparent;
@@ -140,7 +141,7 @@ header {
         width: 50vw !important;
         height: 100vh;
         left: -50vw;
-        bottom: 0;
+        top: 0;
         background-color: rgba(0, 0, 0, 0.616);
         backdrop-filter: blur(3px);
         border-right: 2px solid rgb(7, 7, 53);
@@ -158,10 +159,10 @@ header {
                 width: auto;
                 text-align: center;
                 margin: 3vh 0 !important;
-                font-size: 1.5rem;
 
                 a {
                     font-weight: 300;
+                    font-size: 2rem;
                 }
             }
         }
@@ -171,5 +172,9 @@ header {
 @media only screen and (max-width: 700px) {
     nav {
         width: 100vw !important;
+
+        a {
+            font-size: 3rem !important;
+        }
     }
 }

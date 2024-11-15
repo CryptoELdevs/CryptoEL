@@ -224,6 +224,7 @@ header nav ul li a {
   background: -webkit-linear-gradient(45deg, #7987ff, #cecdff);
   -webkit-background-clip: text;
   font-size: 1.2rem !important;
+  white-space: nowrap;
 }
 header nav ul li a:hover {
   color: transparent;
@@ -262,7 +263,7 @@ header nav ul li a:hover {
     width: 50vw !important;
     height: 100vh;
     left: -50vw;
-    bottom: 0;
+    top: 0;
     background-color: rgba(0, 0, 0, 0.616);
     -webkit-backdrop-filter: blur(3px);
             backdrop-filter: blur(3px);
@@ -281,15 +282,18 @@ header nav ul li a:hover {
     width: auto;
     text-align: center;
     margin: 3vh 0 !important;
-    font-size: 1.5rem;
   }
   nav ul li a {
     font-weight: 300;
+    font-size: 2rem;
   }
 }
 @media only screen and (max-width: 700px) {
   nav {
     width: 100vw !important;
+  }
+  nav a {
+    font-size: 3rem !important;
   }
 }
 canvas {
