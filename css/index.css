@@ -173,7 +173,7 @@ header .searchBarContainer .searchBar {
   cursor: text;
 }
 header .searchBarContainer .searchBar .searchLogoSide {
-  width: 12%;
+  width: 2.5rem;
   height: 70%;
   display: grid;
   place-items: center;
@@ -267,7 +267,7 @@ header nav ul li a:hover {
     position: fixed;
     width: 50vw !important;
     height: 100vh;
-    left: -50vw;
+    left: -100vw;
     top: 0;
     background-color: rgba(0, 0, 0, 0.616);
     -webkit-backdrop-filter: blur(3px);
