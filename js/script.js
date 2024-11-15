@@ -172,7 +172,7 @@ async function showCrypto(time, crypto) {
         await askDatasFromApi(time, crypto)
         if (cryptoValuesByPeriod[crypto] !== oldDatas)
             await buildGraph(crypto)
-    }, 5000);
+    }, 30000);
 }
 
 
@@ -188,3 +188,4 @@ function changeLogo() {
 window.addEventListener("resize", changeLogo)
 
 changeLogo()
+showCrypto("h", "ETH")
