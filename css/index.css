@@ -322,7 +322,7 @@ canvas {
 }
 .filterAndCards .filter details {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 0 0 1rem 0;
+  padding: 0 0 5px 0;
   width: 12rem;
 }
 .filterAndCards .filter details summary {
@@ -382,7 +382,7 @@ canvas {
 }
 .filterAndCards .cards .cryptoCard:hover {
   transition: all 0.2s;
-  background-color: #f5f5f5;
+  background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(245, 245, 245) 14%, rgb(245, 245, 245) 86%, rgb(255, 255, 255) 100%);
 }
 .filterAndCards .cards .cryptoCard .head {
   display: flex;
@@ -453,11 +453,12 @@ canvas {
 }
 @media only screen and (max-width: 700px) {
   .cards {
-    flex-direction: row;
+    flex-direction: row !important;
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
     min-height: 0;
+    align-items: flex-start !important;
   }
   .cards h1 {
     width: 100vw;
@@ -467,6 +468,7 @@ canvas {
     width: 30vw !important;
     height: 35vh !important;
     padding: 1rem 0 !important;
+    align-items: center;
     min-width: 10rem;
     border: 2px solid #193253;
     border-radius: 10px;
@@ -480,7 +482,7 @@ canvas {
     height: 30vh !important;
   }
   .cards .cryptoCard .head * {
-    width: auto;
+    width: auto !important;
   }
   .cards .cryptoCard .head button {
     height: 2.5rem !important;
