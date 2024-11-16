@@ -449,10 +449,10 @@ function toggleSectorFilter() {
     filterSectorOpened = !filterSectorOpened
 
     if (!filterSectorOpened) {
-        sectorSummary.querySelector("img").src = "/assets/img/rightArrow.png"
+        sectorSummary.querySelector("img").src = "./assets/img/rightArrow.png"
     }
     else {
-        sectorSummary.querySelector("img").src = "/assets/img/downArrow.png"
+        sectorSummary.querySelector("img").src = "./assets/img/downArrow.png"
     }
 }
 
