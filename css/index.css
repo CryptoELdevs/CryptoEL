@@ -340,7 +340,7 @@ canvas {
 }
 .cards .cryptoCard:hover {
   transition: all 0.2s;
-  background-color: #ececec;
+  background-color: #f5f5f5;
 }
 .cards .cryptoCard .head {
   display: flex;
