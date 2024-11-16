@@ -319,6 +319,9 @@ canvas {
   width: 100vw;
   min-height: 100vh;
 }
+.cards article.cryptoCard:last-child {
+  border-bottom: 1px solid #193253;
+}
 .cards h1 {
   font-size: 1.8rem;
   font-weight: 300;
