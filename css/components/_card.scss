@@ -7,7 +7,6 @@
     align-items: center;
     margin-top: 2rem;
     padding: 2rem 0;
-    gap: 1rem;
     background-color: #ffffff;
     box-shadow: 0 0 3px 0 rgba(167, 167, 167, 0.445);
     width: 100vw;
@@ -24,9 +23,8 @@
 
     .cryptoCard {
         width: 60vw;
-        border: 2px solid #193253;
-        border-radius: 10px;
-        padding: 0 5px 0 1rem;
+        border-top: 1px solid #193253;
+        padding: 3px 5px 3px 1rem;
         color: colors.$textBlack;
         transition: all 0.2s;
         height: 3rem;
@@ -34,8 +32,7 @@
         &:hover {
             box-shadow: #386aac17 0px 0px 15px 5px;
             transition: all 0.2s;
-            transform: scale(1.006);
-            background-color: #f6f9ff;
+            background-color: #ececec;
         }
 
         .head {
@@ -128,6 +125,8 @@
             height: 35vh !important;
             padding: 1rem 0 !important;
             min-width: 10rem;
+            border: 2px solid #193253;
+            border-radius: 10px;
 
             &:hover {
                 background-color: #fff;
