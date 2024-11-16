@@ -6,7 +6,14 @@ const sectors = [
     "Meme Coin",
     "Exchange & DeFi",
     "Payments",
-    "Storage & Computing"
+    "Storage & Computing",
+    "Oracles",
+    "Layer 2 Scaling",
+    "DeFi Lending",
+    "Advertising",
+    "Blockchain Infrastructure",
+    "Interoperability",
+    "Artificial Intelligence"
 ];
 
 let cryptos = [
@@ -20,7 +27,7 @@ let cryptos = [
     { surname: "DOT", name: "Polkadot", sector: sectors[5] },
     { surname: "LTC", name: "Litecoin", sector: sectors[1] },
     { surname: "AVA", name: "Avalanche", sector: sectors[0] },
-    { surname: "LIN", name: "Chainlink", sector: sectors[5] },
+    { surname: "LIN", name: "Chainlink", sector: sectors[6] },
     { surname: "XLM", name: "Stellar", sector: sectors[4] },
     { surname: "UNI", name: "Uniswap", sector: sectors[3] },
     { surname: "ATO", name: "Cosmos", sector: sectors[5] },
@@ -29,19 +36,31 @@ let cryptos = [
     { surname: "ETC", name: "Ethereum Classic", sector: sectors[0] },
     { surname: "VET", name: "VeChain", sector: sectors[5] },
     { surname: "ALG", name: "Algorand", sector: sectors[0] },
-    { surname: "MAT", name: "Polygon", sector: sectors[5] },
+    { surname: "MAT", name: "Polygon", sector: sectors[7] },
     { surname: "ICP", name: "Internet Computer", sector: sectors[5] },
     { surname: "THE", name: "Theta Network", sector: sectors[5] },
-    { surname: "AAV", name: "Aave", sector: sectors[3] },
+    { surname: "AAV", name: "Aave", sector: sectors[8] },
     { surname: "XTZ", name: "Tezos", sector: sectors[0] },
     { surname: "FTT", name: "FTX Token", sector: sectors[3] },
     { surname: "EOS", name: "EOS", sector: sectors[0] },
     { surname: "SUS", name: "SushiSwap", sector: sectors[3] },
     { surname: "CAK", name: "PancakeSwap", sector: sectors[3] },
-    { surname: "ZEC", name: "Zcash", sector: sectors[5] },
-    { surname: "ENJ", name: "Enjin Coin", sector: sectors[5] },
-    { surname: "GRT", name: "The Graph", sector: sectors[5] }
+    { surname: "ZEC", name: "Zcash", sector: sectors[9] },
+    { surname: "ENJ", name: "Enjin Coin", sector: sectors[9] },
+    { surname: "GRT", name: "The Graph", sector: sectors[10] },
+    { surname: "LIN", name: "Chainlink", sector: sectors[6] },
+    { surname: "MAT", name: "Polygon", sector: sectors[7] },
+    { surname: "SHI", name: "Shiba Inu", sector: sectors[2] },
+    { surname: "AAV", name: "Aave", sector: sectors[8] },
+    { surname: "XMR", name: "Monero", sector: sectors[3] },
+    { surname: "ZRX", name: "0x", sector: sectors[3] },
+    { surname: "BAT", name: "Basic Attention Token", sector: sectors[9] },
+    { surname: "STP", name: "Standard Tokenization Protocol", sector: sectors[10] },
+    { surname: "YFI", name: "Yearn.finance", sector: sectors[8] },
+    { surname: "KSM", name: "Kusama", sector: sectors[11] },
+    { surname: "FET", name: "Fetch.ai", sector: sectors[12] }
 ];
+
 
 const cards = document.querySelector(".cards")
 const input = document.querySelector(".searchInput")
