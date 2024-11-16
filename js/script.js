@@ -482,6 +482,11 @@ sectorFilter.forEach(oneSectorFilter => {
         else {
             buildAllCryptoCards()
         }
+
+        if (searchInput.value) {
+            searchInput.value = ""
+            search()
+        }
     })
 })
 
