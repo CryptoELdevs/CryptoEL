@@ -339,7 +339,6 @@ canvas {
   height: 3rem;
 }
 .cards .cryptoCard:hover {
-  box-shadow: rgba(56, 106, 172, 0.0901960784) 0px 0px 15px 5px;
   transition: all 0.2s;
   background-color: #ececec;
 }
