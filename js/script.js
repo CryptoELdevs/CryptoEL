@@ -454,7 +454,6 @@ function toggleSectorFilter() {
     else {
         sectorSummary.querySelector("img").src = "/assets/img/downArrow.png"
     }
-
 }
 
 sectorFilter.forEach(oneSectorFilter => {

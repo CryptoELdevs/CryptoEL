@@ -15,6 +15,18 @@
             border-bottom: 1px solid rgba(0, 0, 0, 0.2);
             padding: 0 0 5px 0;
             width: 12rem;
+            margin-bottom: 5px;
+
+            &:last-child {
+                border: none;
+            }
+
+            div {
+                flex-direction: column;
+                display: inline-flex;
+                padding-top: 8px;
+                padding-left: 1rem;
+            }
 
             summary {
                 list-style-type: none;
@@ -31,11 +43,7 @@
             }
 
             #sector {
-                padding-top: 8px;
                 color: #999;
-                display: inline-flex;
-                flex-direction: column;
-                padding-left: 1rem;
 
                 p {
                     white-space: nowrap;
