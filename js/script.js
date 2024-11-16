@@ -1,37 +1,46 @@
 const logo = document.querySelector(".logo")
 
+const sectors = [
+    "Smart Contracts",
+    "Store of Value",
+    "Meme Coin",
+    "Exchange & DeFi",
+    "Payments",
+    "Storage & Computing"
+];
+
 let cryptos = [
-    { surname: "ETH", name: "Ethereum", sector: "Smart Contracts" },
-    { surname: "BTC", name: "Bitcoin", sector: "Store of Value" },
-    { surname: "DOG", name: "Dogecoin", sector: "Meme Coin" },
-    { surname: "BNB", name: "Binance Coin", sector: "Exchange Token" },
-    { surname: "ADA", name: "Cardano", sector: "Smart Contracts" },
-    { surname: "SOL", name: "Solana", sector: "Smart Contracts" },
-    { surname: "XRP", name: "XRP", sector: "Payments" },
-    { surname: "DOT", name: "Polkadot", sector: "Interoperability" },
-    { surname: "LTC", name: "Litecoin", sector: "Payments" },
-    { surname: "AVA", name: "Avalanche", sector: "Smart Contracts" },
-    { surname: "LIN", name: "Chainlink", sector: "Oracles" },
-    { surname: "XLM", name: "Stellar", sector: "Payments" },
-    { surname: "UNI", name: "Uniswap", sector: "Decentralized Exchange (DEX)" },
-    { surname: "ATO", name: "Cosmos", sector: "Interoperability" },
-    { surname: "FIL", name: "Filecoin", sector: "Decentralized Storage" },
-    { surname: "TRX", name: "Tron", sector: "Smart Contracts" },
-    { surname: "ETC", name: "Ethereum Classic", sector: "Smart Contracts" },
-    { surname: "VET", name: "VeChain", sector: "Supply Chain" },
-    { surname: "ALG", name: "Algorand", sector: "Smart Contracts" },
-    { surname: "MAT", name: "Polygon", sector: "Layer 2 Scaling" },
-    { surname: "ICP", name: "Internet Computer", sector: "Decentralized Computing" },
-    { surname: "THE", name: "Theta Network", sector: "Streaming & Content" },
-    { surname: "AAV", name: "Aave", sector: "DeFi Lending" },
-    { surname: "XTZ", name: "Tezos", sector: "Smart Contracts" },
-    { surname: "FTT", name: "FTX Token", sector: "Exchange Token" },
-    { surname: "EOS", name: "EOS", sector: "Smart Contracts" },
-    { surname: "SUS", name: "SushiSwap", sector: "Decentralized Exchange (DEX)" },
-    { surname: "CAK", name: "PancakeSwap", sector: "Decentralized Exchange (DEX)" },
-    { surname: "ZEC", name: "Zcash", sector: "Privacy" },
-    { surname: "ENJ", name: "Enjin Coin", sector: "Gaming & NFTs" },
-    { surname: "GRT", name: "The Graph", sector: "Indexing Protocol" }
+    { surname: "ETH", name: "Ethereum", sector: sectors[0] },
+    { surname: "BTC", name: "Bitcoin", sector: sectors[1] },
+    { surname: "DOG", name: "Dogecoin", sector: sectors[2] },
+    { surname: "BNB", name: "Binance Coin", sector: sectors[3] },
+    { surname: "ADA", name: "Cardano", sector: sectors[0] },
+    { surname: "SOL", name: "Solana", sector: sectors[0] },
+    { surname: "XRP", name: "XRP", sector: sectors[4] },
+    { surname: "DOT", name: "Polkadot", sector: sectors[5] },
+    { surname: "LTC", name: "Litecoin", sector: sectors[1] },
+    { surname: "AVA", name: "Avalanche", sector: sectors[0] },
+    { surname: "LIN", name: "Chainlink", sector: sectors[5] },
+    { surname: "XLM", name: "Stellar", sector: sectors[4] },
+    { surname: "UNI", name: "Uniswap", sector: sectors[3] },
+    { surname: "ATO", name: "Cosmos", sector: sectors[5] },
+    { surname: "FIL", name: "Filecoin", sector: sectors[5] },
+    { surname: "TRX", name: "Tron", sector: sectors[0] },
+    { surname: "ETC", name: "Ethereum Classic", sector: sectors[0] },
+    { surname: "VET", name: "VeChain", sector: sectors[5] },
+    { surname: "ALG", name: "Algorand", sector: sectors[0] },
+    { surname: "MAT", name: "Polygon", sector: sectors[5] },
+    { surname: "ICP", name: "Internet Computer", sector: sectors[5] },
+    { surname: "THE", name: "Theta Network", sector: sectors[5] },
+    { surname: "AAV", name: "Aave", sector: sectors[3] },
+    { surname: "XTZ", name: "Tezos", sector: sectors[0] },
+    { surname: "FTT", name: "FTX Token", sector: sectors[3] },
+    { surname: "EOS", name: "EOS", sector: sectors[0] },
+    { surname: "SUS", name: "SushiSwap", sector: sectors[3] },
+    { surname: "CAK", name: "PancakeSwap", sector: sectors[3] },
+    { surname: "ZEC", name: "Zcash", sector: sectors[5] },
+    { surname: "ENJ", name: "Enjin Coin", sector: sectors[5] },
+    { surname: "GRT", name: "The Graph", sector: sectors[5] }
 ];
 
 const cards = document.querySelector(".cards")
@@ -396,3 +405,65 @@ window.addEventListener("resize", changeLogo)
 
 changeLogo()
 showCrypto("h", "ETH")
+
+//------------------------------------------FILTERS PART---------------------------------------->
+const sector = document.getElementById("sector")
+const sectorSummary = document.getElementById("sectorSummary")
+
+let filterSectorOpened = false
+let sectorFilters = []
+
+// Build all the sectors p
+sectors.forEach(sectorName => {
+    const newSector = document.createElement("p")
+    newSector.textContent = sectorName
+
+    sector.appendChild(newSector)
+})
+
+const sectorFilter = document.querySelectorAll("#sector p")
+
+/**
+ * Toggle the sector filter
+ */
+function toggleSectorFilter() {
+    filterSectorOpened = !filterSectorOpened
+
+    if (!filterSectorOpened) {
+        sectorSummary.querySelector("img").src = "/assets/img/rightArrow.png"
+    }
+    else {
+        sectorSummary.querySelector("img").src = "/assets/img/downArrow.png"
+    }
+
+}
+
+sectorFilter.forEach(oneSectorFilter => {
+    oneSectorFilter.addEventListener("click", (e) => {
+        const oldCryptos = document.querySelectorAll(".cards article")
+        const sector = e.target
+        const textContent = sector.textContent
+
+        if (!sectorFilters.includes(textContent) && sectors.includes(textContent)) {
+            sectorFilters.push(textContent)
+            sector.style.color = "black"
+        }
+        else if (sectorFilters.includes(textContent) && sectors.includes(textContent)) {
+            const index = sectorFilters.indexOf(textContent)
+            sectorFilters.splice(index, 1)
+            sector.style.color = "#999"
+        }
+
+        if (sectorFilters.length > 0) {
+            oldCryptos.forEach(oldCrypto => oldCrypto.remove())
+
+            const cryptosThatHaveSector = cryptos.filter(crypto => sectorFilters.includes(crypto.sector))
+            cryptosThatHaveSector.forEach(cryptoThatHaveSector => buildCryptoCard(cryptoThatHaveSector))
+        }
+        else {
+            buildAllCryptoCards()
+        }
+    })
+})
+
+sectorSummary.addEventListener("click", toggleSectorFilter)

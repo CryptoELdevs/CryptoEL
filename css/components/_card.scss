@@ -1,105 +1,153 @@
 @use "colors";
 @use "fonts";
 
-.cards {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 2rem;
-    padding: 2rem 0;
+.filterAndCards {
     background-color: #ffffff;
     box-shadow: 0 0 3px 0 rgba(167, 167, 167, 0.445);
-    width: 100vw;
-    min-height: 100vh;
+    display: flex;
 
-    & article.cryptoCard:last-child {
-        border-bottom: 1px solid #193253;
-    }
+    .filter {
+        user-select: none;
+        width: auto;
+        margin: 5rem 5vw 0 5vw;
 
-    h1 {
-        font-size: 1.8rem;
-        font-weight: 300;
-        margin-bottom: 1.5rem;
-    }
+        details {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            padding: 0 0 1rem 0;
+            width: 12rem;
 
-    * {
-        cursor: default;
-    }
-
-    .cryptoCard {
-        width: 60vw;
-        border-top: 1px solid #193253;
-        padding: 3px 5px 3px 1rem;
-        color: colors.$textBlack;
-        transition: all 0.2s;
-        height: 3rem;
-
-        &:hover {
-            transition: all 0.2s;
-            background-color: #f5f5f5;
-        }
-
-        .head {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 2.7rem;
-
-            * {
-                width: 20%;
-                text-align: center;
-            }
-
-            .names {
+            summary {
+                list-style-type: none;
                 display: flex;
-                width: 8rem;
-                gap: 10px;
+                align-items: center;
+                gap: 1rem;
+                font-size: 1.3rem;
+                cursor: pointer;
 
-                .firstPart {
-                    display: flex;
-                    width: 3.2rem;
-                    justify-content: space-between;
-
-                    .surname {
-                        font-size: 1.2rem;
-                        font-weight: bold;
-                    }
-
-                    .separator {
-                        height: 1.1rem;
-                        width: 2px;
-                        background-color: #193253;
-                    }
+                img {
+                    width: 1rem;
+                    filter: invert(30%);
                 }
+            }
 
-                .name {
-                    width: 50%;
+            #sector {
+                padding-top: 8px;
+                color: #999;
+                display: inline-flex;
+                flex-direction: column;
+                padding-left: 1rem;
+
+                p {
                     white-space: nowrap;
-                    text-overflow: ellipsis;
-                    overflow: hidden;
+                    padding: 4px 2px;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: black;
+                    }
                 }
             }
         }
+    }
 
-        .blockchain {
-            font-size: 1.6rem;
+    .cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2rem;
+        padding: 2rem 0;
+        width: 60vw;
+        min-height: 100vh;
+
+        & article.cryptoCard:last-child {
+            border-bottom: 1px solid #193253;
         }
 
-        button {
-            background-color: #284B79;
-            border: none;
-            outline: none;
-            height: 80%;
-            border-radius: 7px;
-            padding: 0 10px;
-            color: colors.$white;
-            font-size: 1.2rem;
-            font-family: fonts.$title-font;
-            cursor: pointer;
-            width: 9rem !important;
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        * {
+            cursor: default;
+        }
+
+        .cryptoCard {
+            width: 60vw;
+            border-top: 1px solid #193253;
+            padding: 3px 5px 3px 1rem;
+            color: colors.$textBlack;
+            transition: all 0.2s;
+            height: 3rem;
 
             &:hover {
-                background-color: #19365c;
+                transition: all 0.2s;
+                background-color: #f5f5f5;
+            }
+
+            .head {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 2.7rem;
+
+                * {
+                    width: 20%;
+                    text-align: center;
+                }
+
+                .names {
+                    display: flex;
+                    width: 8rem;
+                    gap: 10px;
+
+                    .firstPart {
+                        display: flex;
+                        width: 3.2rem;
+                        justify-content: space-between;
+
+                        .surname {
+                            font-size: 1.2rem;
+                            font-weight: bold;
+                        }
+
+                        .separator {
+                            height: 1.1rem;
+                            width: 2px;
+                            background-color: #193253;
+                        }
+                    }
+
+                    .name {
+                        width: 50%;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+                }
+            }
+
+            .blockchain {
+                font-size: 1.6rem;
+            }
+
+            button {
+                background-color: #284B79;
+                border: none;
+                outline: none;
+                height: 80%;
+                border-radius: 7px;
+                padding: 0 10px;
+                color: colors.$white;
+                font-size: 1.2rem;
+                font-family: fonts.$title-font;
+                cursor: pointer;
+                width: 9rem !important;
+
+                &:hover {
+                    background-color: #19365c;
+                }
             }
         }
     }
@@ -107,7 +155,16 @@
 
 @media only screen and (max-width: 1100px) {
     .cryptoCard {
-        width: 80vw !important;
+        width: 70vw !important;
+    }
+
+    .filterAndCards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cards {
+        width: 100vw !important;
     }
 }
 

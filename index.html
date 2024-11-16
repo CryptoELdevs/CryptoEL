@@ -14,7 +14,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial"></script>
 
     <script src="./js/script.js" defer></script>
-    <script src="./js/card.js" defer></script>
     <script src="./js/burger.js" defer></script>
     <title>CryptoEL</title>
 </head>
@@ -59,9 +58,17 @@
                 <h1>Trending coins</h1>
             </article>
         </section>
-        <section class="cards">
-            <h1>All coins</h1>
-        </section>
+        <div class="filterAndCards">
+            <div class="filter">
+                <details>
+                    <summary id="sectorSummary">Sector <img src="/assets/img/rightArrow.png" alt="arrow" class="arrow"></summary>
+                    <div id="sector">
+                    </div>
+                </details>
+            </div>
+            <section class="cards">
+            </section>
+        </div>
         <canvas id="candlestickChart" width="800" height="400"></canvas>
     </main>
     <footer></footer>
