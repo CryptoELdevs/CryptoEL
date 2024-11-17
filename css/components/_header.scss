@@ -13,6 +13,10 @@ header {
     height: auto;
     background-color: colors.$darkBlue;
 
+    .logoInNav {
+        display: none;
+    }
+
     div,
     nav {
         width: calc(100vw / 3);
@@ -109,7 +113,7 @@ header {
 }
 
 @media only screen and (max-width: 1000px) and (min-width: 700px) {
-    nav > ul > li > a {
+    nav>ul>li>a {
         font-size: 1.5rem !important;
     }
 }
@@ -121,62 +125,79 @@ header {
         left: 0;
         right: 0;
         margin: 0 auto;
-        width: 50vw;
+        width: 60vw;
 
         .searchBar {
-            width: 50vw !important;
+            width: 60vw !important;
         }
     }
 
     header {
         justify-content: flex-end;
         padding-left: 80vw;
+        height: 10vh;
+
+        .logo {
+            display: none;
+        }
+
+        nav {
+            position: fixed;
+            width: 50vw;
+            height: 100vh;
+            left: -100vw;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.616);
+            backdrop-filter: blur(3px);
+            border-right: 2px solid rgb(7, 7, 53);
+            z-index: 2;
+            transition: all 0.4s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 5rem;
+
+            .logoInNav {
+                display: block;
+                margin-left: 3vw;
+                width: 80%;
+                filter: drop-shadow(0px 0px 1px rgba(154, 161, 255, 0.322));
+            }
+
+            ul {
+                display: flex !important;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                height: 30%;
+
+                li {
+                    width: auto;
+                    text-align: center;
+                    margin: 3vh 0 !important;
+
+                    a {
+                        font-weight: 300;
+                    }
+                }
+            }
+        }
     }
 
     .toggle {
         display: flex !important;
-    }
-
-    .logo {
-        width: 5rem;
-        margin: 1rem 0;
-    }
-
-    nav {
-        position: fixed;
-        width: 50vw !important;
-        height: 100vh;
-        left: -100vw;
-        top: 0;
-        background-color: rgba(0, 0, 0, 0.616);
-        backdrop-filter: blur(3px);
-        border-right: 2px solid rgb(7, 7, 53);
-        z-index: 2;
-        transition: all 0.4s;
-
-        ul {
-            display: flex !important;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            height: 50%;
-
-            li {
-                width: auto;
-                text-align: center;
-                margin: 3vh 0 !important;
-
-                a {
-                    font-weight: 300;
-                }
-            }
-        }
     }
 }
 
 @media only screen and (max-width: 700px) {
     nav {
         width: 100vw !important;
+
+        .logoInNav {
+            width: 60% !important;
+            margin-left: 13% !important;
+        }
 
         a {
             font-size: 2rem !important;

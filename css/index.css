@@ -155,6 +155,9 @@ header {
   height: auto;
   background-color: #0B192C;
 }
+header .logoInNav {
+  display: none;
+}
 header div,
 header nav {
   width: 33.3333333333vw;
@@ -247,25 +250,22 @@ header nav ul li a:hover {
     left: 0;
     right: 0;
     margin: 0 auto;
-    width: 50vw;
+    width: 60vw;
   }
   .searchBarContainer .searchBar {
-    width: 50vw !important;
+    width: 60vw !important;
   }
   header {
     justify-content: flex-end;
     padding-left: 80vw;
+    height: 10vh;
   }
-  .toggle {
-    display: flex !important;
+  header .logo {
+    display: none;
   }
-  .logo {
-    width: 5rem;
-    margin: 1rem 0;
-  }
-  nav {
+  header nav {
     position: fixed;
-    width: 50vw !important;
+    width: 50vw;
     height: 100vh;
     left: -100vw;
     top: 0;
@@ -275,26 +275,44 @@ header nav ul li a:hover {
     border-right: 2px solid rgb(7, 7, 53);
     z-index: 2;
     transition: all 0.4s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 5rem;
   }
-  nav ul {
+  header nav .logoInNav {
+    display: block;
+    margin-left: 3vw;
+    width: 80%;
+    filter: drop-shadow(0px 0px 1px rgba(154, 161, 255, 0.322));
+  }
+  header nav ul {
     display: flex !important;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 50%;
+    height: 30%;
   }
-  nav ul li {
+  header nav ul li {
     width: auto;
     text-align: center;
     margin: 3vh 0 !important;
   }
-  nav ul li a {
+  header nav ul li a {
     font-weight: 300;
+  }
+  .toggle {
+    display: flex !important;
   }
 }
 @media only screen and (max-width: 700px) {
   nav {
     width: 100vw !important;
+  }
+  nav .logoInNav {
+    width: 60% !important;
+    margin-left: 13% !important;
   }
   nav a {
     font-size: 2rem !important;

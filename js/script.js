@@ -425,19 +425,6 @@ async function showCrypto(time, crypto) {
     }, 30000);
 }
 
-
-function changeLogo() {
-    const width = window.innerWidth
-
-    if (width < 1000)
-        logo.setAttribute("src", "./assets/img/logoCarre.png")
-    else
-        logo.setAttribute("src", "./assets/img/logoComplet.png")
-}
-
-window.addEventListener("resize", changeLogo)
-
-changeLogo()
 showCrypto("h", "ETH")
 
 //------------------------------------------FILTERS PART---------------------------------------->
