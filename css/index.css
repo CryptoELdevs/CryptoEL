@@ -355,7 +355,13 @@ canvas {
   padding: 4px 2px;
   cursor: pointer;
 }
-.filterAndCards .filter details #sector p:hover {
+.filterAndCards .filter details #sector p.notActive {
+  color: #999;
+}
+.filterAndCards .filter details #sector p.notActive:hover {
+  color: black;
+}
+.filterAndCards .filter details #sector p.active {
   color: black;
 }
 .filterAndCards .cards {

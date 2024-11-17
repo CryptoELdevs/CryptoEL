@@ -1,4 +1,5 @@
 const logo = document.querySelector(".logo")
+let sectorFilters = []
 
 const sectors = [
     "Smart Contracts",
@@ -62,7 +63,6 @@ let cryptos = [
 ];
 
 
-const cards = document.querySelector(".cards")
 const input = document.querySelector(".searchInput")
 const cardsDiv = document.querySelector(".cards")
 
@@ -107,7 +107,7 @@ function buildCryptoCard(crypto) {
     card.classList.add("cryptoCard")
     card.classList.add(crypto.sector.replace(/ /g, "-"))
 
-    cards.appendChild(card)
+    cardsDiv.appendChild(card)
 
     // Head div part
     const head = document.createElement("div")
@@ -197,6 +197,8 @@ function showBlocksOrNot(inputValue) {
     }
 }
 
+const filters = document.querySelector(".filter")
+
 /**
  * Show cards that marches the user input and show or not blocks if the user searched
  */
@@ -228,6 +230,19 @@ function search() {
     }
     else
         cardsDiv.textContent = "No coin found"
+
+    if (inputValue) {
+        filters.style.display = "none"
+        cardsDiv.style.width = "100vw"
+        sectorFilters = []
+    } else {
+        filters.style.display = "flex"
+        cardsDiv.style.width = "60vw"
+    }
+    document.querySelectorAll("#sectorDetails p").forEach(sector => {
+        sector.classList.remove("active")
+        sector.classList.add("notActive")
+    })
 }
 
 buildAllCryptoCards()
@@ -430,12 +445,12 @@ const sector = document.getElementById("sector")
 const sectorSummary = document.getElementById("sectorSummary")
 
 let filterSectorOpened = false
-let sectorFilters = []
 
 // Build all the sectors p
 sectors.forEach(sectorName => {
     const newSector = document.createElement("p")
     newSector.textContent = sectorName
+    newSector.classList.add("notActive")
 
     sector.appendChild(newSector)
 })
@@ -464,12 +479,10 @@ sectorFilter.forEach(oneSectorFilter => {
 
         if (!sectorFilters.includes(textContent) && sectors.includes(textContent)) {
             sectorFilters.push(textContent)
-            sector.style.color = "black"
         }
         else if (sectorFilters.includes(textContent) && sectors.includes(textContent)) {
             const index = sectorFilters.indexOf(textContent)
             sectorFilters.splice(index, 1)
-            sector.style.color = "#999"
         }
 
         if (sectorFilters.length > 0) {
@@ -482,9 +495,13 @@ sectorFilter.forEach(oneSectorFilter => {
             buildAllCryptoCards()
         }
 
-        if (searchInput.value) {
-            searchInput.value = ""
-            search()
+        if (sector.classList.contains("active")) {
+            sector.classList.remove("active")
+            sector.classList.add("notActive")
+        }
+        else {
+            sector.classList.remove("notActive")
+            sector.classList.add("active")
         }
     })
 })

@@ -50,7 +50,15 @@
                     padding: 4px 2px;
                     cursor: pointer;
 
-                    &:hover {
+                    &.notActive {
+                        color: #999;
+
+                        &:hover {
+                            color: black;
+                        }
+                    }
+
+                    &.active {
                         color: black;
                     }
                 }
