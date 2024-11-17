@@ -62,12 +62,13 @@ header {
         }
     }
 
-    img {
+    .logo {
         width: 20rem;
         display: flex;
         align-self: flex-start;
         filter: drop-shadow(0px 0px 1px black);
         cursor: pointer;
+        margin-left: 5vw;
     }
 
 
@@ -109,6 +110,10 @@ header {
 @media only screen and (max-width: 1200px) {
     .searchBar {
         width: 30vw !important;
+    }
+
+    .logo {
+        margin-left: 0 !important;
     }
 }
 
@@ -160,9 +165,9 @@ header {
 
             .logoInNav {
                 display: block;
-                margin-left: 3vw;
                 width: 80%;
                 filter: drop-shadow(0px 0px 1px rgba(154, 161, 255, 0.322));
+                cursor: default;
             }
 
             ul {
@@ -196,7 +201,6 @@ header {
 
         .logoInNav {
             width: 60% !important;
-            margin-left: 13% !important;
         }
 
         a {

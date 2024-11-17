@@ -199,12 +199,13 @@ header .searchBarContainer .searchBar input::-moz-placeholder {
 header .searchBarContainer .searchBar input::placeholder {
   color: rgb(182, 182, 182);
 }
-header img {
+header .logo {
   width: 20rem;
   display: flex;
   align-self: flex-start;
   filter: drop-shadow(0px 0px 1px black);
   cursor: pointer;
+  margin-left: 5vw;
 }
 header nav {
   display: flex;
@@ -237,6 +238,9 @@ header nav ul li a:hover {
 @media only screen and (max-width: 1200px) {
   .searchBar {
     width: 30vw !important;
+  }
+  .logo {
+    margin-left: 0 !important;
   }
 }
 @media only screen and (max-width: 1000px) and (min-width: 700px) {
@@ -283,9 +287,9 @@ header nav ul li a:hover {
   }
   header nav .logoInNav {
     display: block;
-    margin-left: 3vw;
     width: 80%;
     filter: drop-shadow(0px 0px 1px rgba(154, 161, 255, 0.322));
+    cursor: default;
   }
   header nav ul {
     display: flex !important;
@@ -312,7 +316,6 @@ header nav ul li a:hover {
   }
   nav .logoInNav {
     width: 60% !important;
-    margin-left: 13% !important;
   }
   nav a {
     font-size: 2rem !important;
@@ -630,4 +633,5 @@ body {
 
 main {
   z-index: 0;
+  overflow-x: hidden;
 }/*# sourceMappingURL=index.css.map */
